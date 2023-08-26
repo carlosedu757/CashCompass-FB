@@ -1,4 +1,4 @@
-# CashCompass-API 💰⏱
+# CashCompass-FB (Front n' Back) 💰⏱
 ![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
 
 ## Requisitos da API 📃📌
