@@ -11,14 +11,6 @@ yarn-error.log
 logs/
 *.log
 
-# Arquivos de compilação
-dist/
-build/
-
-# Arquivos específicos do ambiente de desenvolvimento
-.vscode/
-.idea/
-
 # Outros
 *.tmp
 *.temp
@@ -27,3 +19,20 @@ Thumbs.db
 
 # Arquivos de configuração local (por exemplo, configurações de IDE)
 .local/
+
+# Arquivos e pastas de configuração
+/.pnp
+.pnp.js
+/cache
+/.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build
+/build
+/dist
+
+# Arquivos de configuração do editor
+/.vscode
+/.idea
