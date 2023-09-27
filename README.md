@@ -80,7 +80,7 @@ orientação a objetos_
   <tr>
     <td align="center">
       <a href="https://github.com/carlosedu757">
-        <img src="" width="100px;" alt="Foto do Carlos Eduardo no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/74271104?v=4" width="100px;" alt="Foto do Carlos Eduardo no GitHub"/><br>
         <sub>
           <b>Carlos Eduardo</b>
         </sub>
