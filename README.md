@@ -66,8 +66,8 @@ orientação a objetos_
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/theJoseAlan">
-        <img src="https://avatars.githubusercontent.com/u/117518719?v=4" width="100px;" alt="Foto do Jose Alan no GitHub"/><br>
+      <a href="https://github.com/XXXXXXXX">
+        <img src="" width="100px;" alt="Foto do XXXXXXX no GitHub"/><br>
         <sub>
           <b>Jose Alan</b>
         </sub>
@@ -80,7 +80,7 @@ orientação a objetos_
   <tr>
     <td align="center">
       <a href="https://github.com/carlosedu757">
-        <img src="https://avatars.githubusercontent.com/u/74271104?v=4" width="100px;" alt="Foto do Carlos Eduardo no GitHub"/><br>
+        <img src="" width="100px;" alt="Foto do Carlos Eduardo no GitHub"/><br>
         <sub>
           <b>Carlos Eduardo</b>
         </sub>
@@ -92,8 +92,8 @@ orientação a objetos_
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/FireBlastL">
-        <img src="https://github.com/carlosedu757/CashCompass-API/assets/117518719/7c42fdc7-a357-4600-a9d0-431614c1ce9e" width="100px;" alt="Foto do Gabriel Farias no GitHub"/><br>
+      <a href="https://github.com/XXXXXXXXX">
+        <img src="" width="100px;" alt="Foto do XXXXXXXXX no GitHub"/><br>
         <sub>
           <b>Gabriel Farias</b>
         </sub>
