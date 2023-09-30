@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CashCompass/.vs/CashCompass/FileContentIndex
+/CashCompass/CashCompass/bin/Debug
+/CashCompass/CashCompass/obj/Debug
+/CashCompass/packages
