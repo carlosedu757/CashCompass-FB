@@ -66,19 +66,6 @@ orientação a objetos_
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/XXXXXXXX">
-        <img src="" width="100px;" alt="Foto do XXXXXXX no GitHub"/><br>
-        <sub>
-          <b>XXXXXXX</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td align="center">
       <a href="https://github.com/carlosedu757">
         <img src="https://avatars.githubusercontent.com/u/74271104?v=4" width="100px;" alt="Foto do Carlos Eduardo no GitHub"/><br>
         <sub>
@@ -92,10 +79,23 @@ orientação a objetos_
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/XXXXXXXXX">
-        <img src="" width="100px;" alt="Foto do XXXXXXXXX no GitHub"/><br>
+      <a href="https://github.com/MiguelFarias1">
+        <img src="https://avatars.githubusercontent.com/u/83464660?v=4" width="100px;" alt="Foto do Miguel Farias no GitHub"/><br>
         <sub>
-          <b>XXXXXX</b>
+          <b>Miguel Farias</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Gronite">
+        <img src="https://avatars.githubusercontent.com/u/74727176?v=4" width="100px;" alt="Foto do Deyvid Nascimento no GitHub"/><br>
+        <sub>
+          <b>Deyvid Nascimento</b>
         </sub>
       </a>
     </td>
