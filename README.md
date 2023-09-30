@@ -69,7 +69,7 @@ orientação a objetos_
       <a href="https://github.com/XXXXXXXX">
         <img src="" width="100px;" alt="Foto do XXXXXXX no GitHub"/><br>
         <sub>
-          <b>Jose Alan</b>
+          <b>XXXXXXX</b>
         </sub>
       </a>
     </td>
@@ -95,7 +95,7 @@ orientação a objetos_
       <a href="https://github.com/XXXXXXXXX">
         <img src="" width="100px;" alt="Foto do XXXXXXXXX no GitHub"/><br>
         <sub>
-          <b>Gabriel Farias</b>
+          <b>XXXXXX</b>
         </sub>
       </a>
     </td>
