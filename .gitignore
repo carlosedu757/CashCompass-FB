@@ -3,6 +3,8 @@
 ################################################################################
 
 /CashCompass/.vs/CashCompass/FileContentIndex
-/CashCompass/CashCompass/bin/Debug
-/CashCompass/CashCompass/obj/Debug
 /CashCompass/packages
+*.vsidx
+*.v2
+CashCompassBackEnd/RestAPI/.vs/RestAPI/v17/.suo
+*.cache
