@@ -6,5 +6,7 @@
 /CashCompass/packages
 *.vsidx
 *.v2
-CashCompassBackEnd/RestAPI/.vs/RestAPI/v17/.suo
+CashCompassBackEnd/RestAPI/.vs
 *.cache
+CashCompassBackEnd/RestAPI/RestAPI/bin
+CashCompassBackEnd/RestAPI/RestAPI/obj
