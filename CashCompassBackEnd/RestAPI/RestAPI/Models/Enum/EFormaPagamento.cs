@@ -2,6 +2,6 @@
 {
     public enum EFormaPagamento
     {
-        DINHEIRO, CREDITO, DEBITO
+        DINHEIRO, CREDITO, DEBITO, PIX, TRANSFERENCIA
     }
 }

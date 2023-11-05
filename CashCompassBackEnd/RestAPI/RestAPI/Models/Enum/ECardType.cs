@@ -1,7 +1,5 @@
-﻿namespace RestAPI.Models.Enum
-{
-    public enum ECardType
-    {
-        CREDITO, DEBITO
-    }
+﻿namespace RestAPI.Models.Enum;
+public enum ECardType
+{ 
+    CREDITO, DEBITO
 }
