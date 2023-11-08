@@ -69,10 +69,17 @@ public class CardService
         return card;
     }
 
-    public async void DeleteCard(Card card)
+    public async Task DeleteCard(string id)
     {
-        _cardRepository
+        var card = await _cardRepository
             .Cards
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id.Equals(id));
+
+        if (card is null)
+            throw new ArgumentException($"O cartão com o id {id} não existe !");
+
+        _cardRepository.Cards
             .Remove(card);
 
         await _cardRepository.SaveChangesAsync();

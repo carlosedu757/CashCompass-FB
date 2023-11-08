@@ -2,7 +2,7 @@
 
 namespace RestAPI.Models;
 
-public class Receitas
+public class Receita
 {
     [Key]
     public long Id { get; set; }

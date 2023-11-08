@@ -1,9 +1,11 @@
-﻿using RestAPI.Models.Enum;
+﻿using System.ComponentModel.DataAnnotations;
+using RestAPI.Models.Enum;
 
 namespace RestAPI.Models
 {
     public class Despesa
     {
+        [Key]
         public int Id { get; set; }
         public decimal Value { get; set; }
         public DateTime Date { get; set; }

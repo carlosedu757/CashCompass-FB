@@ -5,7 +5,7 @@ using Models;
 using Services;
 
 [ApiController]
-[Route("api/v1/cards")]
+[Route("api/v1/[controller]")]
 public class CardController : ControllerBase
 {
 	private readonly CardService _cardService;
@@ -16,7 +16,8 @@ public class CardController : ControllerBase
 	}
 
 	[HttpGet]
-	public async Task<ActionResult<List<Card>>> GetAllCards([FromRoute] int quantity)
+	[Route("/{quantity:int}")]
+	public async Task<ActionResult<List<Card>>> GetAllCards([FromQuery] int quantity)
 	{
 		var cards = await _cardService.GetAllCards(quantity);
 
@@ -24,6 +25,7 @@ public class CardController : ControllerBase
 	}
 
 	[HttpGet]
+	[Route("/{id:int}")]
 	public async Task<ActionResult<Card>> GetCardById([FromRoute] int id)
 	{
 		var card = await _cardService
@@ -38,5 +40,14 @@ public class CardController : ControllerBase
 		await _cardService.CreateCard(card);
 
 		return CreatedAtAction(nameof(GetCardById), new {Id = card.Id}, card);
+	}
+
+	[HttpDelete]
+	[Route("/{id}")]
+	public async Task<ActionResult> Delete([FromRoute] string id)
+	{
+		await _cardService.DeleteCard(id);
+
+		return NoContent();
 	}
 }
