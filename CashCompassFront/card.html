@@ -101,20 +101,6 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -124,76 +110,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <!-- <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i> -->
-                                <!-- Counter - Alerts -->
-                                <!-- <span class="badge badge-danger badge-counter">3+</span>
-                            </a> -->
-                            <!-- Dropdown - Alerts -->
-                            <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -253,7 +170,7 @@
                                 <div class="col-sm-2" style="text-align: center;">
                                     <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
                                 </div>
                             </div>
@@ -284,12 +201,12 @@
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
                                             aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Crédito</a>
-                                            <a class="dropdown-item" href="#">Débito</a>
+                                            <a class="dropdown-item" href="#">MasterCard</a>
+                                            <a class="dropdown-item" href="#">Elo</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <input type="text" class="form-control form-control-user" id="closingDaySeach" placeholder="Ex.: 28">
                                 </div>
                             </div>
@@ -303,12 +220,107 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="#" class="btn btn-success btn-icon-split">
+                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">ADICIONAR CARTÃO</span>
-                                    </a>
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Cartão</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Selecione
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#" data-value="credito">Crédito</a>
+                                                                    <a class="dropdown-item" href="#" data-value="debito">Débito</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Selecione
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">MasterCard</a>
+                                                                    <a class="dropdown-item" href="#">Elo</a>
+                                                                    <a class="dropdown-item" href="#">Visa</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                                    <button type="button" class="btn btn-success">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <a href="#" class="btn btn-warning btn-icon-split">
@@ -524,6 +536,20 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-item').on('click', function() {
+                if ($(this).data('value')) {
+                    var selectedValue = $(this).data('value');
+                    var selectedText = $(this).text();
+    
+                    $(this).closest('.dropdown').find('.dropdown-toggle').text(selectedText);
+                    // Use selectedValue if needed for further processing or actions
+                }
+            });
+        });
+    </script>    
 
 </body>
 

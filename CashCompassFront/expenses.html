@@ -319,12 +319,98 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="#" class="btn btn-success btn-icon-split">
+                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">ADICIONAR DESPESA</span>
-                                    </a>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Despesa</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Quitação:</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" id="data-inicial" class="form-control">
+                                                                <span class="input-group-append"><i class="bi bi-calendar"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Selecione
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">Cartão de Crédito</a>
+                                                                    <a class="dropdown-item" href="#">Cartão de Débito</a>
+                                                                    <a class="dropdown-item" href="#">Pix</a>
+                                                                    <a class="dropdown-item" href="#">Transferência Bancária</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <div class="dropdown mb-4">
+                                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Selecione
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">Dívida Carro</a>
+                                                                    <a class="dropdown-item" href="#">Casa</a>
+                                                                    <a class="dropdown-item" href="#">Alimentação</a>
+                                                                    <a class="dropdown-item" href="#">Gasolina</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Selecione
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">Pendente</a>
+                                                                    <a class="dropdown-item" href="#">Concluída</a>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                                    <button type="button" class="btn btn-success">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <a href="#" class="btn btn-warning btn-icon-split">
