@@ -20,6 +20,8 @@ namespace RestAPI.Models
 
         public EBandeira Bandeira { get; set; }
         public ECardType CardType { get; set; }
+
+        public List<Despesa> Despesas { get; set; } = new List<Despesa>();
         
         public User User { get; set; }
     }

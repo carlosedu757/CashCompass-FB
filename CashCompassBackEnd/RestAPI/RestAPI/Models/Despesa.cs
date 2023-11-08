@@ -12,6 +12,7 @@ namespace RestAPI.Models
         public string Description { get; set; }
         public ECategory Category { get; set; }
         public EFormaPagamento FormaPagamento { get; set; }
+        public Card Card { get; set; }
         public bool IsOpen { get; set; }
     }
 }

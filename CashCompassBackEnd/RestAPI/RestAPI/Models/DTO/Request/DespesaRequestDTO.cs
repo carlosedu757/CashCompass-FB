@@ -1,6 +1,6 @@
 ﻿namespace RestAPI.Models.DTO;
 
-public class DespesaDTO
+public class DespesaRequestDTO
 {
     
 }

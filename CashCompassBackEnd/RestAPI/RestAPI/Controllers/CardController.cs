@@ -1,4 +1,6 @@
-﻿namespace RestAPI.Controllers;
+﻿using RestAPI.Models.DTO.Response;
+
+namespace RestAPI.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -17,7 +19,7 @@ public class CardController : ControllerBase
 
 	[HttpGet]
 	[Route("/{quantity:int}")]
-	public async Task<ActionResult<List<Card>>> GetAllCards([FromQuery] int quantity)
+	public async Task<ActionResult<List<CardResponseDTO>>> GetAllCards([FromQuery] int quantity)
 	{
 		var cards = await _cardService.GetAllCards(quantity);
 
@@ -26,7 +28,7 @@ public class CardController : ControllerBase
 
 	[HttpGet]
 	[Route("/{id:int}")]
-	public async Task<ActionResult<Card>> GetCardById([FromRoute] int id)
+	public async Task<ActionResult<CardResponseDTO>> GetCardById([FromRoute] int id)
 	{
 		var card = await _cardService
 			.GetCardById(id);
@@ -35,7 +37,7 @@ public class CardController : ControllerBase
 	}
 
 	[HttpPost]
-	public async Task<ActionResult<Card>> Create([FromBody] Card card)
+	public async Task<ActionResult<CardResponseDTO>> Create([FromBody] Card card)
 	{
 		await _cardService.CreateCard(card);
 

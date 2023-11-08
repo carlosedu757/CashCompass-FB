@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RestAPI.Models.DTO;
 
-public class UserDTORequest
+public class UserRequestDTO
 {
     [MinLength(4, ErrorMessage = "O tamanho mínimo é de 4 caracteres")]
     [MaxLength(60, ErrorMessage = "O tamanho máximo é de 60 caracteres")]

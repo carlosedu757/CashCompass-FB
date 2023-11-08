@@ -1,9 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using RestAPI.Models.DTO;
 
 namespace RestAPI.Models
 {
     public class User
     {
+        public User(UserRequestDTO request)
+        {
+            Name = request.Name;
+            Email = request.Email;
+            Password = request.Password;
+            Avatar = request.Avatar;
+        }
+        
         [Key]
         public int Id { get; set; }
         
