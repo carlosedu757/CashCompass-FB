@@ -17,6 +17,6 @@ public class ReceitaController : ControllerBase
 
     public async Task<ActionResult<List<ReceitaResponseDTO>>> GetAllReceitas()
     {
-        
+        return await GetAllReceitas();
     }
 }

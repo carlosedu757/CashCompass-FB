@@ -8,12 +8,12 @@ public class CardResponseDTO
     public CardResponseDTO(Card card)
     {
         UserName = card.User.Name;
-        Number = card.Number;
-        Limit = card.Limit;
-        Value = card.Value;
+        Number = card.CardNumber;
+        Limit = card.LimitValue;
+        Value = card.CurrentValue;
         DateClose = card.DateClose;
         Bandeira = card.Bandeira;
-        CardType = card.CardType;
+        CardType = card.Type;
     }
     
     public string UserName { get; set; }

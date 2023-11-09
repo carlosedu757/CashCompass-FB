@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using RestAPI.Models.Enum;
 
 namespace RestAPI.Models
@@ -6,13 +7,28 @@ namespace RestAPI.Models
     public class Despesa
     {
         [Key]
-        public int Id { get; set; }
+        public int DespesaId { get; set; }
+
+        [Required]
         public decimal Value { get; set; }
+
+        [Required]
         public DateTime Date { get; set; }
+
         public string Description { get; set; }
+
+        [Required]
         public ECategory Category { get; set; }
+
+        [Required]
         public EFormaPagamento FormaPagamento { get; set; }
-        public Card Card { get; set; }
-        public bool IsOpen { get; set; }
+
+        public int CardId { get; set; }
+
+        [ForeignKey("CardId")]
+        public virtual Card Card { get; set; }
+
+        [Required]
+        public bool WasPaid { get; set; }
     }
 }

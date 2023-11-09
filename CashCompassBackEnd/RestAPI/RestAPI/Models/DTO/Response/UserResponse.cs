@@ -4,7 +4,7 @@ public class UserResponse
 {
     public UserResponse(User user)
     {
-        Id = user.Id;
+        Id = user.UserId;
         Name = user.Name;
         Email = user.Email;
     }

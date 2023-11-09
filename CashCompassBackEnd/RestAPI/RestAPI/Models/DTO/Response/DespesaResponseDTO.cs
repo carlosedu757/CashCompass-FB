@@ -6,13 +6,13 @@ public class DespesaResponseDTO
 {
     public DespesaResponseDTO(Despesa despesa)
     {
-        Id = despesa.Id;
+        Id = despesa.DespesaId;
         Value = despesa.Value;
         Date = despesa.Date;
         Description = despesa.Description;
         Category = despesa.Category;
         FormaPagamento = despesa.FormaPagamento;
-        IsOpen = despesa.IsOpen;
+        IsOpen = despesa.WasPaid;
     }
 
     public int Id { get; set; }

@@ -41,7 +41,7 @@ public class CardController : ControllerBase
 	{
 		await _cardService.CreateCard(card);
 
-		return CreatedAtAction(nameof(GetCardById), new {Id = card.Id}, card);
+		return CreatedAtAction(nameof(GetCardById), new {Id = card.CardId}, card);
 	}
 
 	[HttpDelete]

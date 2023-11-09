@@ -1,18 +1,22 @@
+using RestAPI.Context;
 using Microsoft.EntityFrameworkCore;
-using RestAPI.Repositories;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers().AddJsonOptions(options =>
+                                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CardRepository>(options => options.UseSqlServer("CardDatabase"));
-builder.Services.AddDbContext<DespesaRepository>();
-builder.Services.AddDbContext<ReceitaRepository>();
+string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+                                options.UseMySql(mySqlConnection,
+                                ServerVersion.AutoDetect(mySqlConnection)));
 
 var app = builder.Build();
 

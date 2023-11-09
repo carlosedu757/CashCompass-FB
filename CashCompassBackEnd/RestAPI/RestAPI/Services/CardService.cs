@@ -30,7 +30,7 @@ public class CardService
     {
         var card = await _cardRepository
             .Cards
-            .FirstOrDefaultAsync(x => x.Id == id);
+            .FirstOrDefaultAsync(card => card.CardId == id);
 
         if (card is null)
         {
@@ -54,8 +54,8 @@ public class CardService
         var card = _cardRepository
             .Cards
             .FirstOrDefaultAsync(x => 
-                x.Number.Contains(number) && 
-                x.Number.EndsWith(number[3]) &&
+                x.CardNumber.Contains(number) && 
+                x.CardNumber.EndsWith(number[3]) &&
                  x.Bandeira.Equals(bandeira) &&
                 x.DateClose.Day == dateClose
                 )
@@ -74,7 +74,7 @@ public class CardService
         var card = await _cardRepository
             .Cards
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id.Equals(id));
+            .FirstOrDefaultAsync(card => card.CardId.Equals(id));
 
         if (card is null)
             throw new ArgumentException($"O cartão com o id {id} não existe !");

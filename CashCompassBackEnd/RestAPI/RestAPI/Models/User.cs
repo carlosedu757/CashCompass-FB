@@ -1,10 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using RestAPI.Models.DTO;
 
 namespace RestAPI.Models
 {
     public class User
     {
+        public User()
+        {
+            Cards = new Collection<Card>();
+        }
         public User(UserRequestDTO request)
         {
             Name = request.Name;
@@ -14,7 +19,7 @@ namespace RestAPI.Models
         }
         
         [Key]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         
         [MaxLength(60)]
         public string Name { get; set; }
@@ -25,7 +30,7 @@ namespace RestAPI.Models
         
         public string Avatar { get; set; }
 
-        public List<Despesa> Despesas { get; set; } = new List<Despesa>();
-        public List<Card> Cards { get; set; } = new List<Card>();
+        public ICollection<Card>? Cards { get; set; }
+        //public List<Card> Cards { get; set; } = new List<Card>();
     }
 }

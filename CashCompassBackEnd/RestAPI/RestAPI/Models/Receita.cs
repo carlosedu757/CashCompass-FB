@@ -5,12 +5,12 @@ namespace RestAPI.Models;
 public class Receita
 {
     [Key]
-    public long Id { get; set; }
+    public long ReceitaId { get; set; }
     
     [DisplayFormat(DataFormatString = "C", ApplyFormatInEditMode = true)]
     public decimal Value { get; set; }
     
-    [MaxLength(50, ErrorMessage = "O tamanho máximo é de 50 caracteres !")]
+    [MaxLength(100, ErrorMessage = "O tamanho máximo é de 100 caracteres !")]
     [MinLength(5, ErrorMessage = "O tamanho mínimo é de 5 caracteres !")]
     public string Description { get; set; }
 
