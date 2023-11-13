@@ -250,10 +250,10 @@
                                 <div class="col-sm-3" style="text-align: center;">
                                     <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <h6 class="m-0 font-weight-bold text-primary">Quitação:</h6>
                                 </div>
                             </div>
@@ -280,7 +280,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -296,7 +296,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2" style="text-align: center;">
+                                <div class="col-sm-3" style="text-align: center;">
                                     <button class="btn btn-primary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
@@ -310,15 +310,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-3">
-                                    <a href="#" class="btn btn-info btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-search"></i>
-                                        </span>
-                                        <span class="text">PROCURAR DESPESA</span>
-                                    </a>
-                                </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
@@ -403,6 +395,34 @@
                                                                 </div>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
+                                                        </div>
+                                                        <div class="col-sm-6" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
+                                                        </div>
+                                                        <div class="col-sm-3" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Núm. de Parcelas:</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-user" id="valueExpenseC" placeholder="Ex.: 3000">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-user" id="descriptionExpenseC" placeholder="Ex.: Conta de Água">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control form-control-user" id="parcelNumberC" placeholder="Ex.: 5">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
@@ -412,20 +432,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <a href="#" class="btn btn-warning btn-icon-split">
+                                <div class="col-sm-8 text-right">
+                                    <a href="#" class="btn btn-info btn-icon-split">
                                         <span class="icon text-white-50">
-                                            <i class="fas fa-wrench"></i>
+                                            <i class="fas fa-search"></i>
                                         </span>
-                                        <span class="text">EDITAR DESPESA</span>
-                                    </a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                        <span class="text">APAGAR DESPESA</span>
+                                        <span class="text">PROCURAR DESPESA</span>
                                     </a>
                                 </div>
                             </div>
@@ -449,6 +461,7 @@
                                             <th style="color: #ffffff;">Categoria</th>
                                             <th style="color: #ffffff;">Número de Parcelas</th>
                                             <th style="color: #ffffff;">Quitação</th>
+                                            <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </thead>
                                     <tfoot style="background-color: #5d7ddf;">
@@ -460,6 +473,7 @@
                                             <th style="color: #ffffff;">Categoria</th>
                                             <th style="color: #ffffff;">Número de Parcelas</th>
                                             <th style="color: #ffffff;">Quitação</th>
+                                            <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -471,6 +485,16 @@
                                             <th>Casa</th>
                                             <th>1 DE 12</th>
                                             <th>Concluída</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -480,6 +504,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -489,6 +523,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -498,6 +542,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -507,6 +561,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -516,6 +580,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -525,6 +599,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -534,6 +618,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -543,6 +637,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -552,6 +656,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -561,6 +675,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>3000</th>
@@ -570,6 +694,16 @@
                                             <th>Salário</th>
                                             <th>Empresa X</th>
                                             <th>Pendente</th>
+                                            <th>
+                                                <div class="icons-container">
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                    </a>
+                                                    <a href="#" class="">
+                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -653,6 +787,16 @@
             autoclose: true
         });
     </script>
+
+    <style>
+
+        .icons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas com largura igual */
+            gap: 1px; /* Espaço entre as colunas */
+            align-items: center; /* Alinha os itens verticalmente ao centro */
+        }
+    </style>
 
 </body>
 
