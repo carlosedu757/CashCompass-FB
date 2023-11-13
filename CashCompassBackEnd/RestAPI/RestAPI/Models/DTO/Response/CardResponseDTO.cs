@@ -26,8 +26,8 @@ public class CardResponseDTO
     
     public DateOnly DateClose { get; set; }
 
-    public EBandeira Bandeira { get; set; }
+    public Bandeira Bandeira { get; set; }
     
-    public ECardType CardType { get; set; }
+    public CardType CardType { get; set; }
     
 }

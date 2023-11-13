@@ -49,7 +49,7 @@ public class CardService
          return card;
     }
 
-    public Card FindCard(string number, EBandeira bandeira, ECardType cardType, int dateClose)
+    public Card FindCard(string number, Bandeira bandeira, CardType cardType, int dateClose)
     {
         var card = _cardRepository
             .Cards

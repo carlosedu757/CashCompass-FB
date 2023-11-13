@@ -15,8 +15,8 @@ public class ReceitaController : ControllerBase
         _receitaService = receitaService;
     }
 
-    public async Task<ActionResult<List<ReceitaResponseDTO>>> GetAllReceitas()
-    {
-        return await GetAllReceitas();
-    }
+    //public async Task<ActionResult<List<ReceitaResponseDTO>>> GetAllReceitas()
+    //{
+    //    return await GetAllReceitas();
+    //}
 }

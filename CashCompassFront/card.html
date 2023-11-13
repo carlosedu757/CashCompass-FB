@@ -187,9 +187,8 @@
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Crédito</a>
-                                            <a class="dropdown-item" href="#">Débito</a>
+                                            aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                            <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                         </div>
                                     </div>
                                 </div>
@@ -201,9 +200,8 @@
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">MasterCard</a>
-                                            <a class="dropdown-item" href="#">Elo</a>
+                                            aria-labelledby="dropdownMenuButton" id="bandeiraDropdown">
+                                            <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                         </div>
                                     </div>
                                 </div>
@@ -636,6 +634,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Specific Custom script for the page-->
+    <script src="js/card.js"></script>
 
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>

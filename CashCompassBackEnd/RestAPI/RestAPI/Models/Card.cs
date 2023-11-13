@@ -31,10 +31,10 @@ namespace RestAPI.Models
         public DateOnly DateClose { get; set; }
 
         [Required]
-        public EBandeira Bandeira { get; set; }
+        public Bandeira Bandeira { get; set; }
 
         [Required]
-        public ECardType Type { get; set; }
+        public CardType Type { get; set; }
 
         public ICollection<Despesa>? Despesas { get; set; }
         //public List<Despesa> Despesas { get; set; } = new List<Despesa>();
