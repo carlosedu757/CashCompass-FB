@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="imagex/png" href="./img/CASHCOMPASS.png">
 
-    <title>CashCompass - Receitas</title>
+    <title>CashCompass - Cartões</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -102,20 +102,6 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -125,22 +111,6 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </li>
 
                         <!-- Nav Item - User Information -->
@@ -183,7 +153,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Visão de Receitas</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Categorias</h1>
                     
                     <!-- Basic Card Example -->
                     <div class="card shadow mb-4">
@@ -192,53 +162,13 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                    <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
-                                </div>
-                                <div class="col-sm-4" style="text-align: center;">
-                                    <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
-                                </div>
-                                <div class="col-sm-4" style="text-align: center;">
-                                    <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
+                                <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                    <h6 class="m-0 font-weight-bold text-primary">Nome da Categoria:</h6>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                    <div class="input-group">
-                                        <input type="text" id="data-inicial" class="form-control">
-                                        <span class="input-group-append"><i class="bi bi-calendar"></i></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4" style="text-align: center;">
-                                    <div class="dropdown mb-4">
-                                        <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Selecione
-                                        </button>
-                                        <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Cartão de Crédito</a>
-                                            <a class="dropdown-item" href="#">Cartão de Débito</a>
-                                            <a class="dropdown-item" href="#">Pix</a>
-                                            <a class="dropdown-item" href="#">Transferência Bancária</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4" style="text-align: center;">
-                                    <div class="dropdown mb-4">
-                                        <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Selecione
-                                        </button>
-                                        <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Salário</a>
-                                            <a class="dropdown-item" href="#">Bônus Empresa</a>
-                                            <a class="dropdown-item" href="#">Bet</a>
-                                        </div>
-                                    </div>
+                                <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                    <input type="text" class="form-control form-control-user" id="nameCategorySearch" placeholder="Ex.: Contas">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -247,88 +177,29 @@
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
-                                        <span class="text">ADICIONAR RECEITA</span>
+                                        <span class="text">ADICIONAR CATEGORIA</span>
                                     </button>
-
+                                    
                                     <!-- Modal -->
                                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Receita</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Categoria</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="form-group row">
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" id="data-inicial" class="form-control">
-                                                                <span class="input-group-append"><i class="bi bi-calendar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Cartão de Crédito</a>
-                                                                    <a class="dropdown-item" href="#">Cartão de Débito</a>
-                                                                    <a class="dropdown-item" href="#">Pix</a>
-                                                                    <a class="dropdown-item" href="#">Transferência Bancária</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Dívida Carro</a>
-                                                                    <a class="dropdown-item" href="#">Casa</a>
-                                                                    <a class="dropdown-item" href="#">Alimentação</a>
-                                                                    <a class="dropdown-item" href="#">Gasolina</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="valueExpenseR" placeholder="Ex.: 3000">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
+                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="descriptionExpenseC" placeholder="Ex.: Conta de Água">
+                                                                <input type="text" class="form-control form-control-user" id="nameCategoryCreate" placeholder="Ex.: Contas">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -346,7 +217,7 @@
                                         <span class="icon text-white-50">
                                             <i class="fas fa-search"></i>
                                         </span>
-                                        <span class="text">PROCURAR RECEITA</span>
+                                        <span class="text">PROCURAR CATEGORIA</span>
                                     </a>
                                 </div>
                             </div>
@@ -356,42 +227,27 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Receitas</h5>
+                            <h5 class="m-0 font-weight-bold text-primary">Categorias</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead style="background-color: #5d7ddf;">
-                                        <tr>
-                                            <th style="color: #ffffff;">Valor</th>
-                                            <th style="color: #ffffff;">Data</th>
-                                            <th style="color: #ffffff;">Descrição</th>
-                                            <th style="color: #ffffff;">Forma de Pagamento</th>
-                                            <th style="color: #ffffff;">Categoria</th>
-                                            <th style="color: #ffffff;">Fornecedor</th>
+                                    <thead>
+                                        <tr style="background-color: #5d7ddf;">
+                                            <th style="color: #ffffff;">Nome</th>
                                             <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </thead>
-                                    <tfoot style="background-color: #5d7ddf;">
-                                        <tr>
-                                            <th style="color: #ffffff;">Valor</th>
-                                            <th style="color: #ffffff;">Data</th>
-                                            <th style="color: #ffffff;">Descrição</th>
-                                            <th style="color: #ffffff;">Forma de Pagamento</th>
-                                            <th style="color: #ffffff;">Categoria</th>
-                                            <th style="color: #ffffff;">Fornecedor</th>
+                                    <tfoot>
+                                        <tr style="background-color: #5d7ddf;">
+                                            <th style="color: #ffffff;">Nome</th>
                                             <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>2032</td>
-                                            <td>05/11/2023</td>
-                                            <td>Recebimento de dívida paga</td>
-                                            <th>Pix</th>
-                                            <th>Adicionais</th>
-                                            <th>Tia Léia</th>
-                                            <th>
+                                            <td>28</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -400,16 +256,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>29</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -418,16 +269,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -436,16 +282,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -454,16 +295,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -472,16 +308,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -490,16 +321,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -508,16 +334,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -526,16 +347,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -544,16 +360,11 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -562,34 +373,24 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
-                                                    <a href="#" class="">
+                                                    <a href="#" class="btn-editar">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
                                                     </a>
-                                                    <a href="#" class="">
+                                                    <a href="#" class="btn-apagar">
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
+                                            <td>21</td>
+                                            <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
                                                         <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
@@ -598,7 +399,7 @@
                                                         <i class="fas fa-trash" style="color:red"></i>
                                                     </a>
                                                 </div>
-                                            </th>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -667,18 +468,20 @@
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-
-
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
     <script>
-        $('#data-inicial, #data-final').datepicker({
-            format: "dd/mm/yyyy",
-            language: "pt-BR",
-            autoclose: true
+        $(document).ready(function() {
+            $('.dropdown-item').on('click', function() {
+                if ($(this).data('value')) {
+                    var selectedValue = $(this).data('value');
+                    var selectedText = $(this).text();
+    
+                    $(this).closest('.dropdown').find('.dropdown-toggle').text(selectedText);
+                    // Use selectedValue if needed for further processing or actions
+                }
+            });
         });
     </script>
 
@@ -691,6 +494,7 @@
             align-items: center; /* Alinha os itens verticalmente ao centro */
         }
     </style>
+
 </body>
 
 </html>
