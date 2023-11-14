@@ -77,8 +77,6 @@ public class AppDbContext : DbContext
 
             entity.Property(e => e.Description);
 
-            entity.Property(e => e.Category).IsRequired();
-
             entity.Property(e => e.FormaPagamento).IsRequired();
 
             entity.Property(e => e.WasPaid).IsRequired();
