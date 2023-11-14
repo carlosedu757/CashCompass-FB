@@ -12,7 +12,7 @@ public class DespesaResponseDTO
         Description = despesa.Description;
         Category = despesa.Category;
         FormaPagamento = despesa.FormaPagamento;
-        IsOpen = despesa.WasPaid;
+        WasPaid = despesa.WasPaid;
     }
 
     public int Id { get; set; }
@@ -21,5 +21,5 @@ public class DespesaResponseDTO
     public string Description { get; set; }
     public ECategory Category { get; set; }
     public EFormaPagamento FormaPagamento { get; set; }
-    public bool IsOpen { get; set; }
+    public bool WasPaid { get; set; }
 }
