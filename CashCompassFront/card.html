@@ -124,18 +124,10 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="perfil.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
+                                    Editar Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configurações
-                                </a>
-                                <!-- <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Registro de Atividades
-                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -366,11 +358,124 @@
                                             <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".bd-editcard-modal-lg"></i>
                                                     </a>
                                                     <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                        <i class="fas fa-trash" style="color:red" data-toggle="modal" data-target="#apagarCardModal"></i>
                                                     </a>
+                                                </div>
+                                                
+                                                <!-- Modal -->
+                                                <div class="modal fade bd-editcard-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Editar Cartão</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <div class="dropdown mb-4">
+                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                                aria-expanded="false">
+                                                                                Selecione
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated--fade-in"
+                                                                                aria-labelledby="dropdownMenuButton">
+                                                                                <a class="dropdown-item" href="#" data-value="credito">Crédito</a>
+                                                                                <a class="dropdown-item" href="#" data-value="debito">Débito</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <div class="dropdown mb-4">
+                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                                aria-expanded="false">
+                                                                                Selecione
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated--fade-in"
+                                                                                aria-labelledby="dropdownMenuButton">
+                                                                                <a class="dropdown-item" href="#">MasterCard</a>
+                                                                                <a class="dropdown-item" href="#">Elo</a>
+                                                                                <a class="dropdown-item" href="#">Visa</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <div class="dropdown mb-4">
+                                                                            <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4" style="text-align: center;">
+                                                                        <div class="dropdown mb-4">
+                                                                            <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                                                <button type="button" class="btn btn-success">Salvar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" id="apagarCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar esse cartão?</h5>
+                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar o cartão selecionado.</div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                                <a class="btn btn-primary" href="#">Apagar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

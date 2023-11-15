@@ -28,7 +28,7 @@ namespace RestAPI.Controllers
                                 .Select(e => new
                                 {
                                     Value = (int)e,
-                                    Description = e.GetDescription()  // Implemente o método GetDescription para obter a descrição do atributo
+                                    Description = e.GetDescription()
                                 });
 
             return Ok(bandeiras);

@@ -124,18 +124,10 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="perfil.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
+                                    Editar Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configurações
-                                </a>
-                                <!-- <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Registro de Atividades
-                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -250,11 +242,61 @@
                                             <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".bd-editcategory-modal-lg"></i>
                                                     </a>
                                                     <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
+                                                        <i class="fas fa-trash" style="color:red" data-toggle="modal" data-target="#apagarCategoriaModal"></i>
                                                     </a>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade bd-editcategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                                                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                                                            <div class="input-group">
+                                                                                <input type="text" class="form-control form-control-user" id="nameCategoryCreate" placeholder="Ex.: Contas">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                                                    <button type="button" class="btn btn-success">Salvar</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" id="apagarCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar essa categoria?</h5>
+                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar a categoria selecionada.</div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                                <a class="btn btn-primary" href="#">Apagar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
