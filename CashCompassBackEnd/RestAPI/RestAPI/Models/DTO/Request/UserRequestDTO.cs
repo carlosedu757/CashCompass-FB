@@ -18,8 +18,4 @@ public class UserRequestDTO
     
     public string Avatar { get; set; }
     
-    public List<Despesa> Despesas { get; set; } = new List<Despesa>();
-    
-    public List<Card> Cards { get; set; } = new List<Card>();
-    
 }

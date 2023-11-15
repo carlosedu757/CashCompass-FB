@@ -10,16 +10,14 @@ public class DespesaResponseDTO
         Value = despesa.Value;
         Date = despesa.Date;
         Description = despesa.Description;
-        Category = despesa.Category;
         FormaPagamento = despesa.FormaPagamento;
-        IsOpen = despesa.WasPaid;
+        WasPaid = despesa.WasPaid;
     }
 
     public int Id { get; set; }
     public decimal Value { get; set; }
     public DateTime Date { get; set; }
     public string Description { get; set; }
-    public ECategory Category { get; set; }
     public EFormaPagamento FormaPagamento { get; set; }
-    public bool IsOpen { get; set; }
+    public bool WasPaid { get; set; }
 }
