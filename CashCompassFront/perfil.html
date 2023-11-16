@@ -40,45 +40,80 @@
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" id="editFirstName"
                                             placeholder="Nome">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" id="editLastName"
                                             placeholder="Sobrenome">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="editInputEmail"
                                         placeholder="Endereço de Email">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Senha">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repita a Senha">
-                                    </div>
-                                </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Registrar Conta
+                                <a href="login.html" class="btn btn-primary btn-user btn-block" id="btnAtualizarConta">
+                                    ATUALIZAR CONTA
+                                </a>
+                                <a class="btn btn-secondary btn-user btn-block" data-toggle="modal" data-target=".editpassword-modal-lg">
+                                    ALTERAR SENHA
                                 </a>
                             </form>
-                            <hr>
-                            <!-- <div class="text-center">
-                                <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
-                            </div> -->
-                            <div class="text-center">
-                                <a class="small" href="login.html">Já tem uma conta? Faça o Login!</a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <!-- Modal Alterar Senha -->
+    <div class="modal fade editpassword-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Senha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Senha Atual:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user"
+                                id="inputCurrentPassword" placeholder="Senha Atual">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Nova Senha:</h6>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Repita a nova senha:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user"
+                                id="inputNewPassword" placeholder="Nova Senha">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control form-control-user"
+                                id="repeatNewPassword" placeholder="Repita a Nova Senha">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
