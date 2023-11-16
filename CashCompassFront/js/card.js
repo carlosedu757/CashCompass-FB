@@ -5,7 +5,7 @@ function popularDropdownCardType(valores) {
     valores.forEach(item => {
         const option = document.createElement('a');
         option.classList.add('dropdown-item');
-        option.href = '#';  // Adicione a URL correta se necessário
+        option.href = '#';
         option.textContent = item.description;
         dropdown.appendChild(option);
     });
@@ -20,18 +20,19 @@ fetch('http://localhost:5134/cardtypes')
     })
     .catch(error => console.error('Erro:', error));
 
-
+// Função para preencher o dropdown com valores do enum
 function popularDropdownBandeira(valores) {
     const dropdown = document.getElementById('bandeiraDropdown');
 
     valores.forEach(item => {
         const option = document.createElement('a');
         option.classList.add('dropdown-item');
-        option.href = '#';  // Adicione a URL correta se necessário
+        option.href = '#';
         option.textContent = item.description;
         dropdown.appendChild(option);
     });
 }
+
 // Requisição AJAX para obter valores do enum Bandeira
 fetch('http://localhost:5134/bandeiras')
     .then(response => response.json())
@@ -40,3 +41,15 @@ fetch('http://localhost:5134/bandeiras')
         popularDropdownBandeira(data);
     })
     .catch(error => console.error('Erro:', error));
+
+//deixar os valores selecionados visuais na combobox
+$(document).ready(function() {
+    $('.dropdown-item').on('click', function() {
+        if ($(this).data('value')) {
+            var selectedValue = $(this).data('value');
+            var selectedText = $(this).text();
+
+            $(this).closest('.dropdown').find('.dropdown-toggle').text(selectedText);
+        }
+    });
+});

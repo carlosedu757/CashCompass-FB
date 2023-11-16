@@ -29,7 +29,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
+        <!-- Sidebar MENU LATERAL-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -58,7 +58,7 @@
                 MENU
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu LATERAL -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
@@ -104,15 +104,6 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                        </li>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -135,7 +126,6 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
@@ -203,107 +193,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4">
-                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".addCard-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">ADICIONAR CARTÃO</span>
                                     </button>
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Cartão</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#" data-value="credito">Crédito</a>
-                                                                    <a class="dropdown-item" href="#" data-value="debito">Débito</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">MasterCard</a>
-                                                                    <a class="dropdown-item" href="#">Elo</a>
-                                                                    <a class="dropdown-item" href="#">Visa</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                    <button type="button" class="btn btn-success">Salvar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="col-sm-8 text-right">
                                     <a href="#" class="btn btn-info btn-icon-split">
@@ -317,7 +212,7 @@
                         </div>
                     </div>
 
-                    <!-- DataTales Example -->
+                    <!-- DataTables Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h5 class="m-0 font-weight-bold text-primary">Seus cartões</h5>
@@ -358,124 +253,11 @@
                                             <td>
                                                 <div class="icons-container">
                                                     <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".bd-editcard-modal-lg"></i>
+                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".editcard-modal-lg"></i>
                                                     </a>
                                                     <a href="#" class="">
                                                         <i class="fas fa-trash" style="color:red" data-toggle="modal" data-target="#apagarCardModal"></i>
                                                     </a>
-                                                </div>
-                                                
-                                                <!-- Modal -->
-                                                <div class="modal fade bd-editcard-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Editar Cartão</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                Selecione
-                                                                            </button>
-                                                                            <div class="dropdown-menu animated--fade-in"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item" href="#" data-value="credito">Crédito</a>
-                                                                                <a class="dropdown-item" href="#" data-value="debito">Débito</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                Selecione
-                                                                            </button>
-                                                                            <div class="dropdown-menu animated--fade-in"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item" href="#">MasterCard</a>
-                                                                                <a class="dropdown-item" href="#">Elo</a>
-                                                                                <a class="dropdown-item" href="#">Visa</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                                <button type="button" class="btn btn-success">Salvar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal fade" id="apagarCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar esse cartão?</h5>
-                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar o cartão selecionado.</div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                                                <a class="btn btn-primary" href="#">Apagar</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -730,6 +512,210 @@
         </div>
     </div>
 
+    <!-- Modal Adicionar Card-->
+    <div class="modal fade addCard-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Cartão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="bandeiraDropdown">
+                                    <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Card-->
+    <div class="modal fade editcard-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Cartão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Número do Cartão:</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Tipo do Cartão:</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Bandeira:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Limite (R$):</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Valor Atual (R$):</h6>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Dia Fechamento:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Apagar Card-->
+    <div class="modal fade" id="apagarCardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar esse cartão?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar o cartão selecionado.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="#">Apagar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -750,7 +736,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('.dropdown-item').on('click', function() {
                 if ($(this).data('value')) {
@@ -762,7 +748,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
 
     <style>
 
