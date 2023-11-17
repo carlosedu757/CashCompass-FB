@@ -1,14 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using RestAPI.Models.Enum;
+﻿using RestAPI.Models.Enum;
 
-namespace RestAPI.Models.DTO;
+namespace RestAPI.Models.DTO.Request;
 
-public class CardDTORequest
+public class CardRequestDTO
 {
     
-    [Range(0, double.MaxValue)]
     public decimal Limite { get; set; }
-    
+    public string CardNumber { get; set; }
     public DateOnly DateClose { get; set; }
     public Bandeira Bandeira { get; set; }
     public CardType CardType { get; set; }
