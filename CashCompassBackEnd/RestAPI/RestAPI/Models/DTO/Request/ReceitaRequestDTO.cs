@@ -1,4 +1,4 @@
-﻿namespace RestAPI.Models.DTO;
+﻿namespace RestAPI.Models.DTO.Request;
 
 public class ReceitaRequestDTO
 {

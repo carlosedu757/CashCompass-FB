@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace RestAPI.Models.DTO;
+namespace RestAPI.Models.DTO.Request;
 
 public class UserRequestDTO
 {

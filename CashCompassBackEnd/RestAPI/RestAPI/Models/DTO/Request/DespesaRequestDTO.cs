@@ -1,6 +1,6 @@
 ﻿using RestAPI.Models.Enum;
 
-namespace RestAPI.Models.DTO;
+namespace RestAPI.Models.DTO.Request;
 
 public class DespesaRequestDTO
 {

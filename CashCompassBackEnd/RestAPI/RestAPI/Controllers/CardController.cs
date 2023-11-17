@@ -1,7 +1,9 @@
-﻿namespace RestAPI.Controllers;
+﻿using RestAPI.Models.DTO;
+using RestAPI.Models.DTO.Request;
+
+namespace RestAPI.Controllers;
 
 using Models.DTO.Response;
-
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
@@ -18,14 +20,13 @@ public class CardController : ControllerBase
 		_cardService = cardService;
 	}
 
-	/*[HttpGet]
-	[Route("/{quantity:int}")]
+	[HttpGet]
 	public async Task<ActionResult<List<CardResponseDTO>>> GetAllCards()
 	{
-		var cards = await _cardService.GetAllCards(quantity);
+		var cards = await _cardService.GetAllCards();
 
 		return Ok(cards);
-	}*/
+	}
 
 	[HttpGet]
 	[Route("/{id:int}")]
@@ -34,19 +35,24 @@ public class CardController : ControllerBase
 		var card = await _cardService
 			.GetCardById(id);
 
-		return Ok(card);
+		var cardResponse = new CardResponseDTO(card);
+
+		return Ok(cardResponse);
 	}
 
 	[HttpPost]
-	public async Task<ActionResult<CardResponseDTO>> Create([FromBody] Card card)
+	public async Task<ActionResult<CardResponseDTO>> Create([FromBody] CardRequestDTO cardRequestDto)
 	{
-		await _cardService.CreateCard(card);
+		var card = await _cardService
+			.CreateCard(cardRequestDto);
 
-		return CreatedAtAction(nameof(GetCardById), new {Id = card.CardId}, card);
+		var cardResponse = new CardResponseDTO(card);
+
+		return Created(nameof(GetCardById), new {Id = card.CardId});
 	}
 
 	[HttpDelete]
-	[Route("/{id:int}")]
+	[Route("/{id}")]
 	public async Task<ActionResult> Delete([FromRoute] string id)
 	{
 		await _cardService.DeleteCard(id);

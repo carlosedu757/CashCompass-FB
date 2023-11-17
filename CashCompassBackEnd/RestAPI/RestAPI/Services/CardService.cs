@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestAPI.Models;
+using RestAPI.Models.DTO;
+using RestAPI.Models.DTO.Request;
 using RestAPI.Models.Enum;
 using RestAPI.Repositories;
 
@@ -15,12 +17,11 @@ public class CardService
         _cardRepository = cardRepository;
     }
     
-    public async Task<List<Card>> GetAllCards(int quantity)
+    public async Task<List<Card>> GetAllCards()
     {
         var cards = await _cardRepository
             .Cards
             .AsNoTracking()
-            .Take(quantity)
             .ToListAsync();
 
         return cards;
@@ -40,13 +41,17 @@ public class CardService
         return card;
     }
 
-    public async Task<Card> CreateCard(Card card)
+    public async Task<Card> CreateCard(CardRequestDTO cardRequest)
     {
-         await _cardRepository.Cards.AddAsync(card);
+        var card = new Card(cardRequest);
 
-         await _cardRepository.SaveChangesAsync();
+        await _cardRepository
+            .Cards
+            .AddAsync(card);
 
-         return card;
+        await _cardRepository.SaveChangesAsync();
+
+        return card;
     }
 
     public Card FindCard(string number, Bandeira bandeira, CardType cardType, int dateClose)

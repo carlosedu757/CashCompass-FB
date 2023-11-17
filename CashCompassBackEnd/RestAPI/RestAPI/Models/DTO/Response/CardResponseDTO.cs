@@ -7,6 +7,7 @@ public class CardResponseDTO
 
     public CardResponseDTO(Card card)
     {
+        Id = card.CardId;
         UserName = card.User.Name;
         Number = card.CardNumber;
         Limit = card.LimitValue;
@@ -15,7 +16,8 @@ public class CardResponseDTO
         Bandeira = card.Bandeira;
         CardType = card.Type;
     }
-    
+
+    public int Id { get; set; }
     public string UserName { get; set; }
     
     public string Number { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using RestAPI.Models.DTO;
+using RestAPI.Models.DTO.Request;
 
 namespace RestAPI.Models;
 
