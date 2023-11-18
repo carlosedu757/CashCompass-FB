@@ -16,7 +16,7 @@ public class DespesaService
 
     public async Task<List<Despesa>> GetAllAsync()
     {
-        return _repository
+        return await _repository
             .Despesas
             .AsNoTracking()
             .ToListAsync();
@@ -24,7 +24,7 @@ public class DespesaService
 
     public async Task<Despesa> GetById(int id)
     {
-        var despesa = _repository
+        var despesa = await _repository
             .Despesas
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.DespesaId == id);
@@ -49,12 +49,12 @@ public class DespesaService
        return despesa;
     }
 
-    private Despesa Swap(Despesa old, Despesa updated)
+    private Despesa Swap(Despesa old, DespesaRequestDTO updated)
     {
         old.Value = updated.Value;
         old.WasPaid = updated.WasPaid;
         old.Description = updated.Description;
-        old.Categoria = updated.Categoria;
+        //old.Categoria = updated;
         old.Date = updated.Date;
         
 
@@ -80,9 +80,9 @@ public class DespesaService
         return despesa;
     }
 
-    public async Task<void> DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        var despesa = _repository
+        var despesa = await _repository
             .Despesas
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.DespesaId == id);

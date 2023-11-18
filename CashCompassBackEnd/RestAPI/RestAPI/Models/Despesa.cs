@@ -1,11 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestAPI.Models.DTO.Request;
 using RestAPI.Models.Enum;
 
 namespace RestAPI.Models;
 
 public class Despesa
 {
+    public Despesa(DespesaRequestDTO request)
+    {
+        Value = request.Value;
+        Date = request.Date;
+        Description = request.Description;
+        WasPaid = request.WasPaid;
+    }
+    
     [Key]
     public int DespesaId { get; set; }
 

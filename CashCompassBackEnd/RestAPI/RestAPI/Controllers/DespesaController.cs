@@ -19,7 +19,7 @@ public class DespesaController : ControllerBase
 
     [HttpGet]
     [Route("/")]
-    public async Task<ActionResult<List<DespesaResponse>>> GetAll()
+    public async Task<ActionResult<List<DespesaResponseDTO>>> GetAll()
     {
         try
         {
@@ -41,7 +41,7 @@ public class DespesaController : ControllerBase
 
     [HttpGet]
     [Route("/{id}")]
-    public async Task<ActionResult<DespesaResponseDTO>> GetById([FromRoute] int id)
+    public async Task<ActionResult<DespesaResponseDTO>> GetDespesaById([FromRoute] int id)
     {
         /*
         * O service já verifica se é nulo então não precisa se preocupar com isso 
@@ -61,13 +61,29 @@ public class DespesaController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<DespesaResponseDTO> Create([FromBody]DespesaRequestDTO request)
+    public async Task<ActionResult<DespesaResponseDTO>> Create([FromBody]DespesaRequestDTO request)
     {
         try
         {
             var despesa = await _despesaService.Create(request);
 
             var response = new DespesaResponseDTO(despesa);
+
+            return CreatedAtAction(nameof(GetDespesaById), new { Id = despesa.CardId }, response);
         }
+
+        catch(Exception ex)
+        {
+            return StatusCode(500);
+        }
+    }
+
+    [HttpDelete]
+    [Route("/{id:int}")]
+    public async Task<ActionResult> DeleteById([FromRoute] int id)
+    {
+        await _despesaService.DeleteAsync(id);
+
+        return NoContent();
     }
 }
