@@ -18,7 +18,6 @@ public class DespesaController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/")]
     public async Task<ActionResult<List<DespesaResponseDTO>>> GetAll()
     {
         try
@@ -39,8 +38,7 @@ public class DespesaController : ControllerBase
         }
     }
 
-    [HttpGet]
-    [Route("/{id}")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<DespesaResponseDTO>> GetDespesaById([FromRoute] int id)
     {
         /*
@@ -78,8 +76,7 @@ public class DespesaController : ControllerBase
         }
     }
 
-    [HttpDelete]
-    [Route("/{id:int}")]
+    [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteById([FromRoute] int id)
     {
         await _despesaService.DeleteAsync(id);

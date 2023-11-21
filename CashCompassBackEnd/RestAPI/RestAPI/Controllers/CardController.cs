@@ -1,11 +1,8 @@
-﻿using RestAPI.Models.DTO;
-using RestAPI.Models.DTO.Request;
+﻿namespace RestAPI.Controllers;
 
-namespace RestAPI.Controllers;
-
+using Models.DTO.Request;
 using Models.DTO.Response;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 using Services;
 
 
@@ -28,8 +25,7 @@ public class CardController : ControllerBase
 		return Ok(cards);
 	}
 
-	[HttpGet]
-	[Route("/{id:int}")]
+	[HttpGet("{id:int}")]
 	public async Task<ActionResult<CardResponseDTO>> GetCardById([FromRoute] int id)
 	{
 		var card = await _cardService
@@ -46,13 +42,10 @@ public class CardController : ControllerBase
 		var card = await _cardService
 			.CreateCard(cardRequestDto);
 
-		var cardResponse = new CardResponseDTO(card);
-
 		return Created(nameof(GetCardById), new {Id = card.CardId});
 	}
 
-	[HttpDelete]
-	[Route("/{id}")]
+	[HttpDelete("{id}")]
 	public async Task<ActionResult> Delete([FromRoute] string id)
 	{
 		await _cardService.DeleteCard(id);

@@ -18,7 +18,7 @@ public class CategoriaController : ControllerBase
     }
 
     [HttpGet("{id:int}", Name = "ObterCategoria")]
-    public async Task<ActionResult<CategoriaDTO>> Get(int id)
+    public async Task<ActionResult<CategoriaDTO>> Get([FromRoute] int id)
     {
         try
         {
@@ -36,7 +36,7 @@ public class CategoriaController : ControllerBase
         }
     }
 
-    [HttpGet("categorias")]
+    [HttpGet]
     public ActionResult<IEnumerable<CategoriaDTO>> GetAllCategorias()
     {
         try
