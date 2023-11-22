@@ -5,6 +5,7 @@ namespace RestAPI.Models;
 
 public class Receita
 {
+    public Receita() { }
     public Receita(ReceitaRequestDTO request)
     {
         Value = request.Value;

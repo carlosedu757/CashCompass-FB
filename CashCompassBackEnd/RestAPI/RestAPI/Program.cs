@@ -1,48 +1,69 @@
 using RestAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using RestAPI.Repositories.Interfaces;
+using RestAPI.Repositories;
+using AutoMapper;
+using RestAPI.Models.DTOs.Mappings;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace RestAPI;
 
-// Add services to the container.
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-                                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+        // Add services to the container.
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+        builder.Services.AddControllers().AddJsonOptions(options =>
+                                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-                                options.UseMySql(mySqlConnection,
-                                ServerVersion.AutoDetect(mySqlConnection)));
+        string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddCors(options =>
+        builder.Services.AddDbContext<AppDbContext>(options =>
+                                    options.UseMySql(mySqlConnection,
+                                    ServerVersion.AutoDetect(mySqlConnection)));
+
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://127.0.0.1:5500")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod()
+                                      .AllowCredentials());
+            });
+
+        var mappingConfig = new MapperConfiguration(mc =>
         {
-            options.AddPolicy("AllowOrigin",
-                builder => builder.WithOrigins("http://127.0.0.1:5500")
-                                  .AllowAnyHeader()
-                                  .AllowAnyMethod()
-                                  .AllowCredentials());
+            mc.AddProfile(new MappingProfile());
         });
 
-var app = builder.Build();
+        IMapper mapper = mappingConfig.CreateMapper();
+        builder.Services.AddSingleton(mapper);
 
+        var app = builder.Build();
 
-//builder.Services.
+        //builder.Services.
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.UseAuthorization();
+
+        app.UseCors("AllowOrigin");
+
+        app.MapControllers();
+
+        app.Run();
+    }
 }
-
-app.UseAuthorization();
-
-app.UseCors("AllowOrigin");
-
-app.MapControllers();
-
-app.Run();

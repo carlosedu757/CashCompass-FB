@@ -17,6 +17,8 @@ public class AppDbContext : DbContext
 
     public DbSet<User>? User { get; set; }
 
+    public DbSet<Categoria>? Categoria { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Card>(entity =>
@@ -81,11 +83,26 @@ public class AppDbContext : DbContext
 
             entity.Property(e => e.WasPaid).IsRequired();
 
+            entity.HasOne(e => e.Categoria)
+                .WithMany()
+                .HasForeignKey(e => e.CategoriaId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
             entity.HasOne(e => e.Card)
                 .WithMany(c => c.Despesas)
                 .HasForeignKey(e => e.CardId)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+
+        modelBuilder.Entity<Categoria>(entity =>
+        {
+            entity.HasKey(e => e.CategoriaId);
+
+            entity.Property(e => e.Nome).HasMaxLength(60).IsRequired();
+
         });
 
         modelBuilder.Entity<User>(entity =>

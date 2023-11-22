@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using RestAPI.Models;
 using RestAPI.Models.DTO;
 using RestAPI.Repositories.Interfaces;
 
@@ -48,6 +49,29 @@ public class CategoriaController : ControllerBase
                 return NotFound("Nenhuma categoria encontrada...");
 
             return Ok(categoriaDTOs);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Post(CategoriaDTO categoriaDTO)
+    {
+        try
+        {
+            var categoria = _mapper.Map<Categoria>(categoriaDTO);
+
+            if (categoria is null)
+                return BadRequest();
+
+            _uof.CategoriaRepository.Add(categoria);
+            await _uof.Commit();
+
+            var categoriaDto = _mapper.Map<CategoriaDTO>(categoria);
+
+            return new CreatedAtRouteResult("ObterCategoria", new { id = categoriaDto.CategoriaId }, categoriaDto);
         }
         catch (Exception)
         {

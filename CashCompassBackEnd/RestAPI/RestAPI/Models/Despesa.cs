@@ -7,6 +7,8 @@ namespace RestAPI.Models;
 
 public class Despesa
 {
+    public Despesa() { }
+
     public Despesa(DespesaRequestDTO request)
     {
         Value = request.Value;
@@ -25,6 +27,8 @@ public class Despesa
     public DateTime Date { get; set; }
 
     public string Description { get; set; }
+
+    public int CategoriaId { get; set; }
 
     [Required]
     [ForeignKey("CategoriaId")]
