@@ -78,4 +78,48 @@ public class CategoriaController : ControllerBase
             return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> Put(int id, CategoriaDTO categoriaDTO)
+    {
+        try
+        {
+            if (id != categoriaDTO.CategoriaId)
+                return BadRequest();
+
+            var categoria = _mapper.Map<Categoria>(categoriaDTO);
+
+            _uof.CategoriaRepository.Update(categoria);
+            await _uof.Commit();
+
+            return Ok(categoria);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<CategoriaDTO>> Delete(int id)
+    {
+        try
+        {
+            var categoria = await _uof.CategoriaRepository.GetById(p => p.CategoriaId == id);
+
+            if (categoria is null)
+                return NotFound($"Categoria com id = {id} não encontrada...");
+
+            _uof.CategoriaRepository.Delete(categoria);
+            await _uof.Commit();
+
+            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
+
+            return Ok(categoriaDTO);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
 }
