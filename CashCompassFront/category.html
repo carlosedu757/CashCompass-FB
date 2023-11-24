@@ -60,7 +60,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
                     <i class="fas fa-dollar-sign"></i>
                     <span>VISÃO DE SALDO</span>
@@ -73,7 +73,7 @@
                         <a class="collapse-item" href="category.html">CATEGORIAS</a>
                     </div>
                 </div>
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="far fa-credit-card"></i>
                     <span>FORMAS DE PAGAMENTO/RECEPÇÃO</span>
@@ -107,7 +107,7 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
@@ -115,7 +115,7 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Carlos Eduardo</span>
                                 <img class="img-profile rounded-circle"
@@ -129,7 +129,7 @@
                                     Editar Perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -165,47 +165,16 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4">
-                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".addcategory-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">ADICIONAR CATEGORIA</span>
                                     </button>
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Categoria</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="nameCategoryCreate" placeholder="Ex.: Contas">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                    <button type="button" class="btn btn-success">Salvar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
+                                
                                 <div class="col-sm-8 text-right">
-                                    <a href="#" class="btn btn-info btn-icon-split">
+                                    <a class="btn btn-info btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-search"></i>
                                         </span>
@@ -236,213 +205,8 @@
                                             <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>28</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".bd-editcategory-modal-lg"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red" data-toggle="modal" data-target="#apagarCategoriaModal"></i>
-                                                    </a>
-
-                                                    <!-- Modal -->
-                                                    <div class="modal fade bd-editcategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                                            <div class="input-group">
-                                                                                <input type="text" class="form-control form-control-user" id="nameCategoryCreate" placeholder="Ex.: Contas">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                                    <button type="button" class="btn btn-success">Salvar</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal fade" id="apagarCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar essa categoria?</h5>
-                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar a categoria selecionada.</div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                                                <a class="btn btn-primary" href="#">Apagar</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>29</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="btn-editar">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="btn-apagar">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21</td>
-                                            <td>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tabelaCategorias">
+                                        <!-- Aqui serão inseridos os dados dinamicamente -->
                                     </tbody>
                                 </table>
                             </div>
@@ -496,6 +260,92 @@
         </div>
     </div>
 
+    <!-- Edit Modal -->
+    <div class="modal fade bd-editcategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="nameCategoryEdit" placeholder="Ex.: Contas">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apagar Modal -->
+    <div class="modal fade" id="apagarCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar essa categoria?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar a categoria selecionada.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" id="apagarCategory">Apagar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal fade addcategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Nome:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group" id="divTesteSim">
+                                <input type="text" class="form-control form-control-user" id="nameCategoryCreate" placeholder="Ex.: Contas">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="btnSaveCategory">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" id="feedbackMessage"></div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -506,26 +356,14 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+
+    <script src="js/category.js" defer></script>
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.dropdown-item').on('click', function() {
-                if ($(this).data('value')) {
-                    var selectedValue = $(this).data('value');
-                    var selectedText = $(this).text();
-    
-                    $(this).closest('.dropdown').find('.dropdown-toggle').text(selectedText);
-                    // Use selectedValue if needed for further processing or actions
-                }
-            });
-        });
-    </script>
 
     <style>
 
@@ -534,6 +372,17 @@
             grid-template-columns: 1fr 1fr; /* Duas colunas com largura igual */
             gap: 1px; /* Espaço entre as colunas */
             align-items: center; /* Alinha os itens verticalmente ao centro */
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .alert-danger {
+            color: white;
+            background-color: red;
+            border-color: darkred;
         }
     </style>
 

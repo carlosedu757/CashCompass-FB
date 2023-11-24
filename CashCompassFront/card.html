@@ -164,12 +164,12 @@
                                 <div class="col-sm-3" style="text-align: center;">
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            id="dropdownFilterCardTypeText" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                            aria-labelledby="dropdownMenuButton" id="cardTypeFilterDropdown">
                                             <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                         </div>
                                     </div>
@@ -177,12 +177,12 @@
                                 <div class="col-sm-2" style="text-align: center;">
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            id="dropdownFilterBandeiraText" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton" id="bandeiraDropdown">
+                                            aria-labelledby="dropdownMenuButton" id="bandeiraFilterDropdown">
                                             <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                         </div>
                                     </div>
@@ -543,12 +543,12 @@
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
                                 <button class="btn btn-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    id="dropdownAddCardCardTypeText" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     Selecione
                                 </button>
                                 <div class="dropdown-menu animated--fade-in"
-                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    aria-labelledby="dropdownMenuButton" id="cardTypeAddCardDropdown">
                                     <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                 </div>
                             </div>
@@ -556,12 +556,12 @@
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
                                 <button class="btn btn-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    id="dropdownAddCardBandeiraText" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     Selecione
                                 </button>
                                 <div class="dropdown-menu animated--fade-in"
-                                    aria-labelledby="dropdownMenuButton" id="bandeiraDropdown">
+                                    aria-labelledby="dropdownMenuButton" id="bandeiraAddCardDropdown">
                                     <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                 </div>
                             </div>
@@ -735,20 +735,6 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
-    <!-- <script>
-        $(document).ready(function() {
-            $('.dropdown-item').on('click', function() {
-                if ($(this).data('value')) {
-                    var selectedValue = $(this).data('value');
-                    var selectedText = $(this).text();
-    
-                    $(this).closest('.dropdown').find('.dropdown-toggle').text(selectedText);
-                    // Use selectedValue if needed for further processing or actions
-                }
-            });
-        });
-    </script> -->
 
     <style>
 
