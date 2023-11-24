@@ -1,13 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RestAPI.Context;
+using RestAPI.Models;
+
 
 namespace RestAPI.Controllers;
-
-
-using Microsoft.AspNetCore.Mvc;
-
-using Context;
-using Models;
-
 
 [ApiController]
 [Route("api/v1/[controller]")]
@@ -28,33 +25,35 @@ public class CategoriaController : ControllerBase
                 .Categoria
                 .FirstOrDefaultAsync(x => x.CategoriaId == id);
 
-            if (categoria is null)
-                return NotFound($"A categoria com o id {id} não existe !");
+            if (categoria == null)
+                return NotFound($"Categoria com id = {id} não encontrada...");
 
             return Ok(categoria);
         }
         catch (Exception)
         {
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar a sua solicitação");
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Categoria>> GetAllCategorias()
+    public async Task<ActionResult<IEnumerable<Categoria>>> GetAllCategorias()
     {
         try
         {
-            var categorias = _context
+            var categorias = await _context
                 .Categoria
+                .AsNoTracking()
                 .ToListAsync();
+
+            if (categorias == null || !categorias.Any())
+                return NotFound("Nenhuma categoria encontrada...");
 
             return Ok(categorias);
         }
         catch (Exception)
         {
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar a sua solicitação");
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
 
@@ -66,50 +65,54 @@ public class CategoriaController : ControllerBase
             await _context.Categoria.AddAsync(categoria);
             await _context.SaveChangesAsync();
 
-            return new CreatedAtRouteResult("ObterCategoria", new { id = categoria.CategoriaId }, categoria);
+            return new CreatedAtRouteResult("ObterCategoria", 
+                new { id = categoria.CategoriaId }, categoria);
         }
-
         catch (Exception)
         {
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar a sua solicitação");
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult<Categoria>> Update([FromRoute] int id, [FromBody] String name)
+    public async Task<ActionResult> Put(int id, Categoria update)
     {
-        var categoria = await _context
-            .Categoria
-            .FirstOrDefaultAsync(x => x.CategoriaId == id);
+        try
+        {
+            if (id != update.CategoriaId)
+                return BadRequest();
 
-        if (categoria is null)
-            return NotFound($"Não foi encontrado nenhuma categoria com o id ${id}");
+            var categoria = await _context.Categoria.FirstOrDefaultAsync(x => x.CategoriaId == id);
 
-        categoria.Nome = name;
+            categoria.Nome = update.Nome;
 
-        _context.Update(categoria);
+            _context.Categoria.Update(categoria);
 
-        await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-        return Ok(categoria);
+            return Ok(update);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
     }
 
     [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteAsyncById([FromRoute] int id)
+    public async Task<ActionResult<Categoria>> Delete(int id)
     {
-        var categoria = await _context
-            .Categoria
-            .FirstOrDefaultAsync(x => x.CategoriaId == id);
+        try
+        {
+            var categoria = await _context.Categoria.FirstOrDefaultAsync(x => x.CategoriaId == id);
 
-        if (categoria is null)
-            return NotFound($"Nenhuma categoria com o id {id} foi encontrada !");
+            if (categoria is null)
+                return NotFound($"Não encontrado nenhuma categoria com o id {id} !");
 
-        _context.Categoria.Remove(categoria);
-
-        await _context.SaveChangesAsync();
-
-        return NoContent();
+            return NoContent();
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
     }
 }
-
