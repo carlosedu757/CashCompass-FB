@@ -1,6 +1,6 @@
 ﻿namespace RestAPI.Models.Enum
 {
-    public enum EFormaPagamento
+    public enum FormaPagamento
     {
         DINHEIRO, CREDITO, DEBITO, PIX, TRANSFERENCIA
     }

@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RestAPI.Context;
 using RestAPI.Models;
-using RestAPI.Models.DTO.Request;
-using RestAPI.Models.DTO.Response;
-using RestAPI.Services;
 
 namespace RestAPI.Controllers;
 
@@ -10,26 +9,18 @@ namespace RestAPI.Controllers;
 [Route("api/v1/[controller]")]
 public class DespesaController : ControllerBase
 {
-    private readonly DespesaService _despesaService;
-
-    public DespesaController(DespesaService despesaService)
-    {
-        _despesaService = despesaService;
-    }
-
+    
     [HttpGet]
-    public async Task<ActionResult<List<DespesaResponseDTO>>> GetAll()
+    public async Task<ActionResult<List<Despesa>>> GetAll([FromServices] AppDbContext context)
     {
         try
         {
-            var despesas = await _despesaService
-            .GetAllAsync();
+            var despesas = await context
+                .Despesa
+                .AsNoTracking()
+                .ToListAsync();
 
-            var despesasResponse = despesas
-                .Select(x => new DespesaResponseDTO(x))
-                .ToList();
-
-            return Ok(despesasResponse);
+            return Ok(despesas);
         }
 
         catch (Exception ex)
@@ -39,15 +30,17 @@ public class DespesaController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<DespesaResponseDTO>> GetDespesaById([FromRoute] int id)
+    public async Task<ActionResult<Despesa>> GetDespesaById([FromRoute] int id, [FromServices] AppDbContext context)
     {
-        /*
-        * O service já verifica se é nulo então não precisa se preocupar com isso 
-        */
 
         try
         {
-            var despesa = await _despesaService.GetById(id);
+            var despesa = await context
+                .Despesa
+                .FirstOrDefaultAsync(x => x.DespesaId == id);
+
+            if (despesa is null)
+                return NotFound($"Não encontrado despesa com o id {id} !");
 
             return Ok(despesa);
         }
@@ -59,15 +52,17 @@ public class DespesaController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<DespesaResponseDTO>> Create([FromBody]DespesaRequestDTO request)
+    public async Task<ActionResult<Despesa>> Create([FromBody]Despesa request, [FromServices] AppDbContext context)
     {
         try
         {
-            var despesa = await _despesaService.Create(request);
+            var despesa = await context
+                .Despesa
+                .AddAsync(request);
 
-            var response = new DespesaResponseDTO(despesa);
+            await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetDespesaById), new { Id = despesa.CardId }, response);
+            return CreatedAtAction(nameof(GetDespesaById), new { Id = request.CardId }, request);
         }
 
         catch(Exception ex)
@@ -76,11 +71,42 @@ public class DespesaController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteById([FromRoute] int id)
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<Despesa>> Update([FromRoute] int id, 
+        [FromBody] Despesa request, [FromServices] AppDbContext context)
     {
-        await _despesaService.DeleteAsync(id);
+        var despesa = await context
+            .Despesa
+            .FirstOrDefaultAsync(x => x.DespesaId == id);
 
+        if (despesa is null)
+            return NotFound($"Não encontrado nenhuma despesa com o id {id} !");
+
+        despesa.Description = request.Description;
+        despesa.Date = request.Date;
+        despesa.Categoria = request.Categoria;
+
+        context.Despesa.Update(despesa);
+
+        await context.SaveChangesAsync();
+
+        return Ok(despesa);
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteById([FromRoute] int id, [FromServices] AppDbContext context)
+    {
+        var despesa = await context
+            .Despesa
+            .FirstOrDefaultAsync(x => x.DespesaId == id);
+
+        if (despesa is null)
+            return NotFound($"Não encontrado nenhuma despesa com o id {id} !");
+
+        context.Despesa.Remove(despesa);
+
+        await context.SaveChangesAsync();
+        
         return NoContent();
     }
 }

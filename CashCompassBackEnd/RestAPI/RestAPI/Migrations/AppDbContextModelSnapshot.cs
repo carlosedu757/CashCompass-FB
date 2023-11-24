@@ -16,7 +16,7 @@ namespace RestAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("RestAPI.Models.Card", b =>
@@ -55,6 +55,22 @@ namespace RestAPI.Migrations
                     b.ToTable("Card");
                 });
 
+            modelBuilder.Entity("RestAPI.Models.Categoria", b =>
+                {
+                    b.Property<int>("CategoriaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
+
+                    b.HasKey("CategoriaId");
+
+                    b.ToTable("Categoria");
+                });
+
             modelBuilder.Entity("RestAPI.Models.Despesa", b =>
                 {
                     b.Property<int>("DespesaId")
@@ -64,7 +80,7 @@ namespace RestAPI.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Category")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -86,6 +102,8 @@ namespace RestAPI.Migrations
                     b.HasKey("DespesaId");
 
                     b.HasIndex("CardId");
+
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Despesa");
                 });
@@ -158,10 +176,18 @@ namespace RestAPI.Migrations
                     b.HasOne("RestAPI.Models.Card", "Card")
                         .WithMany("Despesas")
                         .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RestAPI.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Card");
+
+                    b.Navigation("Categoria");
                 });
 
             modelBuilder.Entity("RestAPI.Models.Card", b =>

@@ -1,24 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using RestAPI.Models.DTO;
-using RestAPI.Models.DTO.Request;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RestAPI.Models;
 
 public class User
 {
-    public User()
-    {
-        Cards = new Collection<Card>();
-    }
-    public User(UserRequestDTO request)
-    {
-        Name = request.Name;
-        Email = request.Email;
-        Password = request.Password;
-        Avatar = request.Avatar;
-    }
-    
     [Key]
     public int UserId { get; set; }
     

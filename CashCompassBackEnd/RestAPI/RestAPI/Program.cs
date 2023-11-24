@@ -1,10 +1,6 @@
 using RestAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
-using RestAPI.Repositories.Interfaces;
-using RestAPI.Repositories;
-using AutoMapper;
-using RestAPI.Models.DTOs.Mappings;
 
 namespace RestAPI;
 
@@ -25,10 +21,8 @@ public class Program
         string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
         builder.Services.AddDbContext<AppDbContext>(options =>
-                                    options.UseMySql(mySqlConnection,
-                                    ServerVersion.AutoDetect(mySqlConnection)));
-
-        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            options.UseMySql(mySqlConnection,
+                ServerVersion.AutoDetect(mySqlConnection)));
 
         builder.Services.AddCors(options =>
             {
@@ -38,20 +32,10 @@ public class Program
                                       .AllowAnyMethod()
                                       .AllowCredentials());
             });
-
-        var mappingConfig = new MapperConfiguration(mc =>
-        {
-            mc.AddProfile(new MappingProfile());
-        });
-
-        IMapper mapper = mappingConfig.CreateMapper();
-        builder.Services.AddSingleton(mapper);
-
+        
         var app = builder.Build();
 
-        //builder.Services.
-
-        // Configure the HTTP request pipeline.
+        
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

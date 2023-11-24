@@ -5,8 +5,6 @@ namespace RestAPI.Models;
 
 public class Categoria
 {
-    public Categoria() { }
-
     public int CategoriaId { get; set; }
 
     [Required]

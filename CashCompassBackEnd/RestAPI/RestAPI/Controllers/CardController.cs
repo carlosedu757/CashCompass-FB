@@ -1,54 +1,97 @@
 ﻿namespace RestAPI.Controllers;
 
-using Models.DTO.Request;
-using Models.DTO.Response;
 using Microsoft.AspNetCore.Mvc;
-using Services;
+using Microsoft.EntityFrameworkCore;
+
+using Context;
+using Models;
 
 
 [ApiController]
 [Route("api/v1/[controller]")]
 public class CardController : ControllerBase
 {
-	private readonly CardService _cardService;
-
-	public CardController(CardService cardService)
-	{
-		_cardService = cardService;
-	}
-
+	
 	[HttpGet]
-	public async Task<ActionResult<List<CardResponseDTO>>> GetAllCards()
+	public async Task<ActionResult<List<Card>>> GetAllCards([FromServices] AppDbContext context)
 	{
-		var cards = await _cardService.GetAllCards();
+		try
+		{
+			var cards = await context?
+				.Card?
+				.AsNoTracking()
+				.ToListAsync();
 
-		return Ok(cards);
+			if (cards is null)
+				return NotFound();
+
+			return Ok(cards);
+		}
+		catch (Exception e)
+		{
+			return StatusCode(500);
+		}
 	}
 
 	[HttpGet("{id:int}")]
-	public async Task<ActionResult<CardResponseDTO>> GetCardById([FromRoute] int id)
+	public async Task<ActionResult<Card>> GetCardById([FromRoute] int id, 
+		[FromServices] AppDbContext context)
 	{
-		var card = await _cardService
-			.GetCardById(id);
+		try
+		{
+			var card = await context
+				.Card
+				.FirstOrDefaultAsync(x => x.CardId == id);
 
-		var cardResponse = new CardResponseDTO(card);
+			if (card is null)
+				return NotFound();
 
-		return Ok(cardResponse);
+			return Ok(card);
+		}
+		catch (Exception e)
+		{
+			return StatusCode(500);
+		}
+	}
+
+	[HttpPut("{id:int}")]
+	public async Task<ActionResult<Card>> Update([FromRoute] int id, Card requestUpdate,
+		[FromServices] AppDbContext context)
+	{
+		var card = await context
+			.Card
+			.FirstOrDefaultAsync(x => x.CardId == id);
+
+		if (card is null)
+			return NotFound();
+
+		return Ok(card);
 	}
 
 	[HttpPost]
-	public async Task<ActionResult<CardResponseDTO>> Create([FromBody] CardRequestDTO cardRequestDto)
+	public async Task<ActionResult<Card>> Create([FromBody] Card card,
+		[FromServices] AppDbContext context)
 	{
-		var card = await _cardService
-			.CreateCard(cardRequestDto);
+		await context.Card.AddAsync(card);
+
+		await context.SaveChangesAsync();
 
 		return Created(nameof(GetCardById), new {Id = card.CardId});
 	}
 
 	[HttpDelete("{id}")]
-	public async Task<ActionResult> Delete([FromRoute] string id)
+	public async Task<ActionResult> Delete([FromRoute] string id, [FromServices] AppDbContext context)
 	{
-		await _cardService.DeleteCard(id);
+		var card = context
+			.Card
+			.FirstOrDefaultAsync(x => x.CardId.Equals(id));
+
+		if (card is null)
+			return NotFound();
+
+		context.Remove(card);
+
+		await context.SaveChangesAsync();
 
 		return NoContent();
 	}

@@ -1,18 +1,9 @@
-﻿using RestAPI.Models.DTO.Request;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RestAPI.Models;
 
 public class Receita
 {
-    public Receita() { }
-    public Receita(ReceitaRequestDTO request)
-    {
-        Value = request.Value;
-        Description = request.Description;
-        Fornecedor = request.Fornecedor;
-    }
-
     [Key]
     public long ReceitaId { get; set; }
     

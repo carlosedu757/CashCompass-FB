@@ -1,125 +1,115 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using RestAPI.Models;
-using RestAPI.Models.DTO;
-using RestAPI.Repositories.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace RestAPI.Controllers;
+
+
+using Microsoft.AspNetCore.Mvc;
+
+using Context;
+using Models;
+
 
 [ApiController]
 [Route("api/v1/[controller]")]
 public class CategoriaController : ControllerBase
 {
-    private readonly IUnitOfWork _uof;
-    private readonly IMapper _mapper;
-    public CategoriaController(IUnitOfWork context, IMapper mapper)
+    private readonly AppDbContext _context;
+    public CategoriaController(AppDbContext context)
     {
-        _uof = context;
-        _mapper = mapper;
+        _context = context;
     }
 
     [HttpGet("{id:int}", Name = "ObterCategoria")]
-    public async Task<ActionResult<CategoriaDTO>> Get([FromRoute] int id)
+    public async Task<ActionResult<Categoria>> Get([FromRoute] int id)
     {
         try
         {
-            var categoria = await _uof.CategoriaRepository.GetById(p => p.CategoriaId == id);
-            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
-
-            if (categoria == null)
-                return NotFound($"Categoria com id = {id} não encontrada...");
-
-            return Ok(categoriaDTO);
-        }
-        catch (Exception)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
-        }
-    }
-
-    [HttpGet]
-    public ActionResult<IEnumerable<CategoriaDTO>> GetAllCategorias()
-    {
-        try
-        {
-            var categorias = _uof.CategoriaRepository.GetAll().OrderBy(on => on.Nome);
-            var categoriaDTOs = _mapper.Map<IEnumerable<CategoriaDTO>>(categorias);
-
-            if (categoriaDTOs == null || !categoriaDTOs.Any())
-                return NotFound("Nenhuma categoria encontrada...");
-
-            return Ok(categoriaDTOs);
-        }
-        catch (Exception)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
-        }
-    }
-
-    [HttpPost]
-    public async Task<ActionResult> Post(CategoriaDTO categoriaDTO)
-    {
-        try
-        {
-            var categoria = _mapper.Map<Categoria>(categoriaDTO);
+            var categoria = await _context
+                .Categoria
+                .FirstOrDefaultAsync(x => x.CategoriaId == id);
 
             if (categoria is null)
-                return BadRequest();
-
-            _uof.CategoriaRepository.Add(categoria);
-            await _uof.Commit();
-
-            var categoriaDto = _mapper.Map<CategoriaDTO>(categoria);
-
-            return new CreatedAtRouteResult("ObterCategoria", new { id = categoriaDto.CategoriaId }, categoriaDto);
-        }
-        catch (Exception)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
-        }
-    }
-
-    [HttpPut("{id:int}")]
-    public async Task<ActionResult> Put(int id, CategoriaDTO categoriaDTO)
-    {
-        try
-        {
-            if (id != categoriaDTO.CategoriaId)
-                return BadRequest();
-
-            var categoria = _mapper.Map<Categoria>(categoriaDTO);
-
-            _uof.CategoriaRepository.Update(categoria);
-            await _uof.Commit();
+                return NotFound($"A categoria com o id {id} não existe !");
 
             return Ok(categoria);
         }
         catch (Exception)
         {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<ActionResult<CategoriaDTO>> Delete(int id)
+    [HttpGet]
+    public ActionResult<IEnumerable<Categoria>> GetAllCategorias()
     {
         try
         {
-            var categoria = await _uof.CategoriaRepository.GetById(p => p.CategoriaId == id);
+            var categorias = _context
+                .Categoria
+                .ToListAsync();
 
-            if (categoria is null)
-                return NotFound($"Categoria com id = {id} não encontrada...");
-
-            _uof.CategoriaRepository.Delete(categoria);
-            await _uof.Commit();
-
-            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
-
-            return Ok(categoriaDTO);
+            return Ok(categorias);
         }
         catch (Exception)
         {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
+
+    [HttpPost]
+    public async Task<ActionResult> Post(Categoria categoria)
+    {
+        try
+        {
+            await _context.Categoria.AddAsync(categoria);
+            await _context.SaveChangesAsync();
+
+            return new CreatedAtRouteResult("ObterCategoria", new { id = categoria.CategoriaId }, categoria);
+        }
+
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError,
+                "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<Categoria>> Update([FromRoute] int id, [FromBody] String name)
+    {
+        var categoria = await _context
+            .Categoria
+            .FirstOrDefaultAsync(x => x.CategoriaId == id);
+
+        if (categoria is null)
+            return NotFound($"Não foi encontrado nenhuma categoria com o id ${id}");
+
+        categoria.Nome = name;
+
+        _context.Update(categoria);
+
+        await _context.SaveChangesAsync();
+
+        return Ok(categoria);
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteAsyncById([FromRoute] int id)
+    {
+        var categoria = await _context
+            .Categoria
+            .FirstOrDefaultAsync(x => x.CategoriaId == id);
+
+        if (categoria is null)
+            return NotFound($"Nenhuma categoria com o id {id} foi encontrada !");
+
+        _context.Categoria.Remove(categoria);
+
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
 }
+
