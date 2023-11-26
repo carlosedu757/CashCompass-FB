@@ -174,7 +174,7 @@
                                 </div>
                                 
                                 <div class="col-sm-8 text-right">
-                                    <a class="btn btn-info btn-icon-split">
+                                    <a class="btn btn-info btn-icon-split" id="buttonSearchCategory">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-search"></i>
                                         </span>
@@ -192,7 +192,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTableCategory" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="background-color: #5d7ddf;">
                                             <th style="color: #ffffff;">Nome</th>
@@ -261,7 +261,7 @@
     </div>
 
     <!-- Edit Modal -->
-    <div class="modal fade bd-editcategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-editcategory-modal-lg"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -286,7 +286,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-success" id="btnEditCategory">Salvar</button>
                 </div>
             </div>
         </div>
@@ -344,8 +344,13 @@
         </div>
     </div>
 
-    <div class="alert alert-danger" role="alert" id="feedbackMessage"></div>
+    <!-- <div class="alert alert-danger" role="alert" id="feedbackMessage"></div> -->
+    <div id="apagarCategoriaSuccess" class="alert alert-success" role="alert" style="display: none;">
+        Categoria <div id="categoriaExcluida"></div> excluída com sucesso!
+    </div>
+    
 
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -356,12 +361,10 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-
-    <script src="js/category.js" defer></script>
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
+    <script src="js/category.js"></script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
@@ -374,7 +377,7 @@
             align-items: center; /* Alinha os itens verticalmente ao centro */
         }
 
-        .alert {
+        /* .alert {
             padding: 15px;
             border-radius: 5px;
         }
@@ -383,7 +386,7 @@
             color: white;
             background-color: red;
             border-color: darkred;
-        }
+        } */
     </style>
 
 </body>

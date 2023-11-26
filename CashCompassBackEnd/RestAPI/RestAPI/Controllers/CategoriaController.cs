@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RestAPI.Context;
 using RestAPI.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace RestAPI.Controllers;
@@ -108,11 +109,38 @@ public class CategoriaController : ControllerBase
             if (categoria is null)
                 return NotFound($"Não encontrado nenhuma categoria com o id {id} !");
 
-            return NoContent();
+            _context.Categoria.Remove(categoria);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(categoria);
         }
         catch (Exception)
         {
             return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
         }
     }
+
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoriasPorNome([FromQuery] string nome)
+    {
+        try
+        {
+            var categorias = await _context
+                .Categoria
+                .Where(c => EF.Functions.Like(c.Nome, $"%{nome}%"))
+                .AsNoTracking()
+                .ToListAsync();
+
+            if (categorias == null || !categorias.Any())
+                return NotFound("Nenhuma categoria encontrada com esse nome...");
+
+            return Ok(categorias);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
 }
