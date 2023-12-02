@@ -52,6 +52,7 @@
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Endereço de Email">
                                 </div>
+                                <div id="errorEmailRegister" class="text-danger" style="display: none;">E-mail inválido.</div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
@@ -62,7 +63,8 @@
                                             id="exampleRepeatPassword" placeholder="Repita a Senha">
                                     </div>
                                 </div>
-                                <a class="btn btn-primary btn-user btn-block">
+                                <div id="errorMessageRegister" style="display: none;"></div>
+                                <a id="btnRegister" class="btn btn-primary btn-user btn-block">
                                     Registrar Conta
                                 </a>
                             </form>
@@ -71,7 +73,7 @@
                                 <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
                             </div> -->
                             <div class="text-center">
-                                <a class="small" href="login.html">Já tem uma conta? Faça o Login!</a>
+                                <a class="small" href="./login.html">Já tem uma conta? Faça o Login!</a>
                             </div>
                         </div>
                     </div>
@@ -87,6 +89,8 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="js/register.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
