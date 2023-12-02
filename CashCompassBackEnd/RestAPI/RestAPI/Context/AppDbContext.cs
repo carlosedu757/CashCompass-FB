@@ -1,9 +1,11 @@
 ﻿using RestAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace RestAPI.Context;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext
 {
     public AppDbContext() { }
 
@@ -21,6 +23,13 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(p => p.UserId);
+
+        modelBuilder.Entity<IdentityUserRole<string>>().HasNoKey();
+
+        modelBuilder.Entity<IdentityUserToken<string>>().HasNoKey();
+
+
         modelBuilder.Entity<Card>(entity =>
         {
             entity.HasKey(e => e.CardId); // Define a chave primária
@@ -116,8 +125,6 @@ public class AppDbContext : DbContext
                 .HasMaxLength(50);
 
             entity.Property(e => e.Password);
-
-            entity.Property(e => e.Avatar);
 
             entity.HasMany(e => e.Cards)
                 .WithOne(c => c.User)

@@ -1,6 +1,7 @@
 using RestAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 
 namespace RestAPI;
 
@@ -9,6 +10,10 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
 
         // Add services to the container.
 
@@ -32,7 +37,7 @@ public class Program
                                       .AllowAnyMethod()
                                       .AllowCredentials());
             });
-        
+
         var app = builder.Build();
 
         
