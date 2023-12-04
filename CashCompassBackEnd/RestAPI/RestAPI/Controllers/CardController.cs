@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Context;
 using Models;
 using RestAPI.Models.Enum;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.ComponentModel.DataAnnotations;
 
 [ApiController]
 [Route("api/v1/[controller]")]
@@ -59,17 +61,47 @@ public class CardController : ControllerBase
 	}
 
 	[HttpPut("{id:int}")]
-	public async Task<ActionResult<Card>> Update([FromRoute] int id, Card requestUpdate)
+	public async Task<ActionResult<Card>> Update(int id, CardDTO updateCard)
 	{
-		var card = await _context
-            .Card
-			.FirstOrDefaultAsync(x => x.CardId == id);
+        try
+        {
+            if (id != updateCard.CardId)
+                return BadRequest();
 
-		if (card is null)
-			return NotFound();
+            var card = await _context.Card.FirstOrDefaultAsync(x => x.CardId == id);
 
-		return Ok(card);
-	}
+            if (card == null)
+                return NotFound();
+
+            if (updateCard.CardNumber != null)
+                card.CardNumber = updateCard.CardNumber;
+
+            if (updateCard.LimitValue != null)
+                card.LimitValue = (decimal)updateCard.LimitValue;
+
+            if (updateCard.CurrentValue != null)
+                card.CurrentValue = (decimal)updateCard.CurrentValue;
+
+            if (updateCard.DateClose != null)
+                card.DateClose = (long)updateCard.DateClose;
+
+            if (updateCard.Bandeira != null)
+                card.Bandeira = (Bandeira)updateCard.Bandeira;
+
+            if (updateCard.Type != null)
+                card.Type = (CardType)updateCard.Type;
+
+            _context.Card.Update(card);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(card);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
 
 	[HttpPost]
 	public async Task<ActionResult<Card>> Create([FromBody] Card card)
@@ -81,21 +113,19 @@ public class CardController : ControllerBase
 		return Created(nameof(GetCardById), new {Id = card.CardId});
 	}
 
-	[HttpDelete("{id}")]
-	public async Task<ActionResult> Delete([FromRoute] string id)
+	[HttpDelete("{id:int}")]
+	public async Task<ActionResult> Delete(int id)
 	{
-		var card = _context
-            .Card
-			.FirstOrDefaultAsync(x => x.CardId.Equals(id));
+		var card = await _context.Card.FirstOrDefaultAsync(x => x.CardId == id);
 
 		if (card is null)
 			return NotFound();
 
-        _context.Remove(card);
+        _context.Card.Remove(card);
 
 		await _context.SaveChangesAsync();
 
-		return NoContent();
+		return Ok(card);
 	}
 
     [HttpGet("search")]

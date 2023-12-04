@@ -414,18 +414,18 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-user" id="numberCardCreate" placeholder="Ex.: 4789">
+                                <input type="text" class="form-control form-control-user" id="numberCardEdit" placeholder="Ex.: 4789">
                             </div>
                         </div>
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
                                 <button class="btn btn-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    id="dropdownEditCardCardTypeButton" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     Selecione
                                 </button>
                                 <div class="dropdown-menu animated--fade-in"
-                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    aria-labelledby="dropdownMenuButton" id="cardTypeEditCardDropdown">
                                     <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                 </div>
                             </div>
@@ -433,12 +433,12 @@
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
                                 <button class="btn btn-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    id="dropdownEditCardBandeiraButton" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     Selecione
                                 </button>
                                 <div class="dropdown-menu animated--fade-in"
-                                    aria-labelledby="dropdownMenuButton" id="cardTypeDropdown">
+                                    aria-labelledby="dropdownMenuButton" id="bandeiraEditCardDropdown">
                                     <!-- Os itens do dropdown serão preenchidos dinamicamente aqui -->
                                 </div>
                             </div>
@@ -458,24 +458,24 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-user" id="limitValueCreate" placeholder="Ex.: 3000">
+                                <input type="text" class="form-control form-control-user" id="limitValueEdit" placeholder="Ex.: 3000">
                             </div>
                         </div>
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
-                                <input type="text" class="form-control form-control-user" id="currentValueCreate" placeholder="Ex.: 3000">
+                                <input type="text" class="form-control form-control-user" id="currentValueEdit" placeholder="Ex.: 3000">
                             </div>
                         </div>
                         <div class="col-sm-4" style="text-align: center;">
                             <div class="dropdown mb-4">
-                                <input type="text" class="form-control form-control-user" id="closingDayCardCreate" placeholder="Ex.: 27">
+                                <input type="text" class="form-control form-control-user" id="closingDayCardEdit" placeholder="Ex.: 27">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-success" id="saveEditCard">Salvar</button>
                 </div>
             </div>
         </div>
@@ -495,7 +495,7 @@
                 <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar o cartão selecionado.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="#">Apagar</a>
+                    <a class="btn btn-primary" id="apagarCard">Apagar</a>
                 </div>
             </div>
         </div>

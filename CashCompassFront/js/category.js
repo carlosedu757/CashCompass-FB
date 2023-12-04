@@ -129,20 +129,15 @@ function obterDadosETabela() {
 }
 
 $('#apagarCategoriaModal').on('show.bs.modal', function (event) {
-    const button = $(event.relatedTarget); // Botão que acionou o modal
-    const categoriaId = button.data('id'); // Capturando o ID da categoria do botão que acionou o modal
+    const button = $(event.relatedTarget);
+    const categoriaId = button.data('id');
 
-    // Capturando o botão "Apagar" dentro do modal
     const apagarButton = $(this).find('#apagarCategory');
 
-    // Removendo qualquer evento de clique previamente atribuído
     apagarButton.off('click');
 
-    // Evento de clique no botão "Apagar" dentro do modal
     apagarButton.on('click', function () {
-        console.log(categoriaId); // Verificando se o ID está sendo capturado corretamente
 
-        // Fazer uma solicitação DELETE para o endpoint da API para excluir a categoria
         fetch('http://localhost:5134/api/v1/Categoria/' + categoriaId, {
             method: 'DELETE'
         })
@@ -156,11 +151,10 @@ $('#apagarCategoriaModal').on('show.bs.modal', function (event) {
             return response.json;
         })
         .then(data => {
-            // Exibir o ID da categoria excluída
             $('#categoriaExcluida').text(`${data.nome}`); // Substitua 'data.id' pela propriedade correta
 
             // Exibir a div de alerta de sucesso após a exclusão
-            $('#apagarCategoriaSuccess').show(); // Supondo que a div tenha um ID de alertSuccess
+            $('#apagarCategoriaSuccess').show();
 
             // Esconder a div de alerta após 5 segundos
             setTimeout(() => {

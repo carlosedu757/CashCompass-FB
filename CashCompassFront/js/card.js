@@ -23,6 +23,7 @@ fetch('http://localhost:5134/cardtypes')
     .then(data => {
         popularDropdown(data, 'cardTypeFilterDropdown', 'dropdownFilterCardTypeText');
         popularDropdown(data, 'cardTypeAddCardDropdown', 'dropdownAddCardCardTypeText');
+        popularDropdown(data, 'cardTypeEditCardDropdown', 'dropdownEditCardCardTypeButton');
     })
     .catch(error => console.error('Erro:', error));
 
@@ -31,6 +32,7 @@ fetch('http://localhost:5134/bandeiras')
     .then(data => {
         popularDropdown(data, 'bandeiraFilterDropdown', 'dropdownFilterBandeiraText');
         popularDropdown(data, 'bandeiraAddCardDropdown', 'dropdownAddCardBandeiraText');
+        popularDropdown(data, 'bandeiraEditCardDropdown', 'dropdownEditCardBandeiraButton');
     })
     .catch(error => console.error('Erro:', error));
 
@@ -258,4 +260,102 @@ const botaoPesquisar = document.getElementById('buttonSearchCard');
 botaoPesquisar.addEventListener('click', function(event) {
     event.preventDefault();
     pesquisarCard();
+});
+
+$('#apagarCardModal').on('show.bs.modal', function (event) {
+    const button = $(event.relatedTarget);
+    const cardId = button.data('id'); 
+
+    const apagarButton = $(this).find('#apagarCard');
+
+    apagarButton.off('click');
+
+    apagarButton.on('click', function () {
+
+        fetch('http://localhost:5134/api/v1/Card/' + cardId, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao excluir cartão.');
+            }
+            $('#apagarCardModal').modal('hide');
+            obterDadosETabela();
+
+            return response.json;
+        })
+        .then(data => {
+
+        })
+        .catch(error => {
+            console.error('Erro ao excluir cartão:', error);
+            alert('Erro ao excluir cartão. Tente novamente.');
+        });
+    });
+});
+
+$('.editcard-modal-lg').on('show.bs.modal', function (event) {
+    const button = $(event.relatedTarget);
+    const cardId = button.data('id');
+
+    const editarButton = $(this).find('#saveEditCard');
+
+    editarButton.off('click');
+
+    editarButton.on('click', function () {
+        const dados = {
+            CardId: cardId, 
+            CardNumber: document.getElementById('numberCardEdit').value, 
+            LimitValue: document.getElementById('limitValueEdit').value, 
+            CurrentValue: document.getElementById('currentValueEdit').value, 
+            DateClose: document.getElementById('closingDayCardEdit').value, 
+            Bandeira: document.getElementById('dropdownEditCardBandeiraButton').value, 
+            Type: document.getElementById('dropdownEditCardCardTypeButton').value
+        }
+
+        const dadosNaoNulos = {};
+        Object.keys(dados).forEach(key => {
+        if (dados[key] !== null && dados[key] !== '' && dados[key] !== undefined) {
+            dadosNaoNulos[key] = dados[key];
+        }
+        });
+
+        dadosNaoNulos.LimitValue = parseFloat(dadosNaoNulos.LimitValue);
+        dadosNaoNulos.CurrentValue = parseFloat(dadosNaoNulos.CurrentValue);
+        dadosNaoNulos.DateClose = parseInt(dadosNaoNulos.DateClose);
+        dadosNaoNulos.Type = parseInt(dadosNaoNulos.Type);
+        dadosNaoNulos.Bandeira = parseInt(dadosNaoNulos.Bandeira);
+        
+        fetch(`http://localhost:5134/api/v1/Card/${cardId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosNaoNulos)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Ocorreu um erro ao editar o cartão.');
+            }
+            $('.editcard-modal-lg').modal('hide');
+            obterDadosETabela();
+
+            return response.json();
+        })
+        .then(result => {
+            console.log('Cartão editado com sucesso:', result);
+            document.getElementById('numberCardEdit').value = '';
+            document.getElementById('dropdownEditCardCardTypeButton').textContent = 'Selecione';
+            document.getElementById('dropdownEditCardCardTypeButton').value = '';
+            document.getElementById('dropdownEditCardBandeiraButton').textContent = 'Selecione';
+            document.getElementById('dropdownEditCardBandeiraButton').value = '';
+            document.getElementById('limitValueEdit').value = '';
+            document.getElementById('currentValueEdit').value = '';
+            document.getElementById('closingDayCardEdit').value = '';
+        })
+        .catch(error => {
+            console.error('Erro ao editar o cartão:', error);
+            // Tratar o erro ou fornecer feedback ao usuário, se necessário
+        });
+    });
 });
