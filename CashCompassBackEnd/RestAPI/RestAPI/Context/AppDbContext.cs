@@ -32,42 +32,30 @@ public class AppDbContext : IdentityDbContext
 
         modelBuilder.Entity<Card>(entity =>
         {
-            entity.HasKey(e => e.CardId); // Define a chave primária
+            entity.HasKey(e => e.CardId); 
 
-            entity.Property(e => e.CardId).ValueGeneratedOnAdd(); // Autoincremento
+            entity.Property(e => e.CardId).ValueGeneratedOnAdd();
 
             entity.Property(e => e.CardNumber)
                 .IsRequired()
                 .HasMaxLength(16);
 
-            entity.Property(e => e.LimitValue).HasColumnType("decimal(18, 2)").IsRequired();
+            entity.Property(e => e.LimitValue).HasColumnType("decimal(7, 2)");
 
-            entity.Property(e => e.CurrentValue).HasColumnType("decimal(18, 2)").IsRequired();
+            entity.Property(e => e.CurrentValue).HasColumnType("decimal(7, 2)");
 
-            entity.Property(e => e.DateClose).HasColumnType("date").IsRequired();
+            entity.Property(e => e.DateClose).HasColumnType("long");
 
             entity.Property(e => e.Bandeira).IsRequired();
 
             entity.Property(e => e.Type).IsRequired();
-
-            entity.HasOne(e => e.User) // Relacionamento com User
-                .WithMany(u => u.Cards)
-                .HasForeignKey(e => e.UserId)
-                .IsRequired(false) // Se quiser permitir Cards sem User, use true
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Relacionamento com Despesa
-            entity.HasMany(e => e.Despesas)
-                .WithOne(d => d.Card)
-                .HasForeignKey(d => d.CardId)
-                .OnDelete(DeleteBehavior.Cascade); // Se for necessário deletar Despesas vinculadas ao deletar um Card
         });
 
         modelBuilder.Entity<Receita>(entity =>
         {
             entity.HasKey(e => e.ReceitaId);
 
-            entity.Property(e => e.Value).HasColumnType("decimal(18, 2)").IsRequired();
+            entity.Property(e => e.Value).HasColumnType("decimal(7, 2)").IsRequired();
 
             entity.Property(e => e.Description)
                 .HasMaxLength(100)
@@ -82,7 +70,7 @@ public class AppDbContext : IdentityDbContext
         {
             entity.HasKey(e => e.DespesaId);
 
-            entity.Property(e => e.Value).HasColumnType("decimal(18, 2)").IsRequired();
+            entity.Property(e => e.Value).HasColumnType("decimal(7, 2)").IsRequired();
 
             entity.Property(e => e.Date).IsRequired();
 
@@ -95,12 +83,6 @@ public class AppDbContext : IdentityDbContext
             entity.HasOne(e => e.Categoria)
                 .WithMany()
                 .HasForeignKey(e => e.CategoriaId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasOne(e => e.Card)
-                .WithMany(c => c.Despesas)
-                .HasForeignKey(e => e.CardId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
         });
@@ -125,11 +107,6 @@ public class AppDbContext : IdentityDbContext
                 .HasMaxLength(50);
 
             entity.Property(e => e.Password);
-
-            entity.HasMany(e => e.Cards)
-                .WithOne(c => c.User)
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Cascade); // Se for necessário deletar Cards vinculados ao deletar um User
         });
     }
 

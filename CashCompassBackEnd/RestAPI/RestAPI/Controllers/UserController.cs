@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RestAPI.Models;
+using System.Security.Claims;
 
 namespace RestAPI.Controllers;
 
@@ -62,7 +63,7 @@ public class UserController : ControllerBase
                 return BadRequest(ModelState.Values.SelectMany(e => e.Errors));
             }
 
-            var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: true, lockoutOnFailure: false);
 
             if (!result.Succeeded)
             {
@@ -74,11 +75,31 @@ public class UserController : ControllerBase
         }
         catch (Exception ex)
         {
-            // Logue a exceção para diagnóstico
             Console.WriteLine(ex.Message);
-            // Retorne um erro mais descritivo para o cliente
             return StatusCode(500, "Erro durante o processo de login");
         }
     }
 
+    [HttpGet("userinfo")]
+    public IActionResult GetUserInfo()
+    {
+        // Verifique se o usuário está autenticado
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            // Recupere as informações do usuário atualmente autenticado
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o userId do usuário autenticado
+            var userName = User.Identity.Name; // Obtém o nome do usuário autenticado
+
+            var userInfo = new
+            {
+                UserId = userId,
+                UserName = userName
+                // Adicione mais informações, se necessário
+            };
+
+            return Ok(userInfo);
+        }
+
+        return Unauthorized("Usuário não autenticado");
+    }
 }

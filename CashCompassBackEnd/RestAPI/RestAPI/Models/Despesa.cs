@@ -26,10 +26,10 @@ public class Despesa
     [Required]
     public FormaPagamento FormaPagamento { get; set; }
 
-    public int CardId { get; set; }
+    //public int CardId { get; set; }
 
-    [ForeignKey("CardId")]
-    public virtual Card Card { get; set; }
+    //[ForeignKey("CardId")]
+    //public virtual Card Card { get; set; }
 
     [Required]
     public bool WasPaid { get; set; }

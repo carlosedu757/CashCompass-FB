@@ -26,17 +26,13 @@ document.querySelector('#btnSaveCategory').addEventListener('click', function ()
         return response.json();
     })
     .then(result => {
-        // Lógica após a conclusão da requisição, se necessário
         console.log('Dados enviados com sucesso:', result);
         $('.addcategory-modal-lg').modal('hide');
         obterDadosETabela();
         document.getElementById('nameCategoryCreate').value = '';
-        // exibirMensagem('Solicitação enviada com sucesso!', 'success');
     })
     .catch(error => {
         console.error('Erro ao enviar os dados:', error);
-        // Tratar o erro ou fornecer feedback ao usuário, se necessário
-        // exibirMensagem('Erro ao enviar os dados. Tente novamente.', 'error');
     });
 });
 
@@ -116,19 +112,16 @@ function preencherTabelaCategorias(categorias) {
     $('#dataTableCategory').DataTable();
 }
 
-// Supondo que você já tenha o código para fazer a requisição à sua API e obtenha os dados
 function obterDadosETabela() {
-    // Limpar a tabela antes de preencher com novos dados
     const tabelaCategorias = document.getElementById('tabelaCategorias');
     tabelaCategorias.innerHTML = '';
 
-    // Supondo que você já tenha o código para fazer a requisição à sua API e obtenha os dados
     fetch('http://localhost:5134/api/v1/Categoria', {
         method: 'GET'
     })
     .then(response => response.json())
     .then(data => {
-        preencherTabelaCategorias(data); // Chamar a função para preencher a tabela com os dados obtidos
+        preencherTabelaCategorias(data);
     })
     .catch(error => {
         console.error('Erro ao obter dados:', error);

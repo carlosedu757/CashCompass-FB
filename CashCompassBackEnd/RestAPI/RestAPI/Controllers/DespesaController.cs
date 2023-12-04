@@ -51,25 +51,25 @@ public class DespesaController : ControllerBase
         }
     }
 
-    [HttpPost]
-    public async Task<ActionResult<Despesa>> Create([FromBody]Despesa request, [FromServices] AppDbContext context)
-    {
-        try
-        {
-            var despesa = await context
-                .Despesa
-                .AddAsync(request);
+    //[HttpPost]
+    //public async Task<ActionResult<Despesa>> Create([FromBody]Despesa request, [FromServices] AppDbContext context)
+    //{
+    //    try
+    //    {
+    //        var despesa = await context
+    //            .Despesa
+    //            .AddAsync(request);
 
-            await context.SaveChangesAsync();
+    //        await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetDespesaById), new { Id = request.CardId }, request);
-        }
+    //        return CreatedAtAction(nameof(GetDespesaById), new { Id = request.CardId }, request);
+    //    }
 
-        catch(Exception ex)
-        {
-            return StatusCode(500);
-        }
-    }
+    //    catch(Exception ex)
+    //    {
+    //        return StatusCode(500);
+    //    }
+    //}
 
     [HttpPut("{id:int}")]
     public async Task<ActionResult<Despesa>> Update([FromRoute] int id, 
