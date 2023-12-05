@@ -33,5 +33,19 @@ namespace RestAPI.Controllers
 
             return Ok(bandeiras);
         }
+
+        [HttpGet("formapagt")]
+        public IActionResult GetFormaPagamentos()
+        {
+            var formasPagamento = Enum.GetValues(typeof(FormaPagamento))
+                                .Cast<FormaPagamento>()
+                                .Select(e => new
+                                {
+                                    Value = (int)e,
+                                    Description = e.GetDescription()
+                                });
+
+            return Ok(formasPagamento);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RestAPI.Models.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestAPI.Models;
 
@@ -7,14 +8,17 @@ public class Receita
     [Key]
     public long ReceitaId { get; set; }
     
-    [DisplayFormat(DataFormatString = "C", ApplyFormatInEditMode = true)]
-    public decimal Value { get; set; }
+    public decimal? Value { get; set; }
     
-    [MaxLength(100, ErrorMessage = "O tamanho máximo é de 100 caracteres !")]
-    [MinLength(5, ErrorMessage = "O tamanho mínimo é de 5 caracteres !")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
-    [MaxLength(50, ErrorMessage = "O tamanho máximo é de 50 caracteres !")]
-    [MinLength(5, ErrorMessage = "O tamanho mínimo é de 5 caracteres !")]
-    public string Fornecedor { get; set; }
+    public string? Fornecedor { get; set; }
+ 
+    public DateTime? Date { get; set; }
+
+    public int? CategoriaId { get; set; }
+
+    public FormaPagamento? FormaPagamento { get; set; }
+
+    public int? CardId { get; set; }
 }

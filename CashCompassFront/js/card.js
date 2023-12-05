@@ -43,7 +43,6 @@ function popularDropdown(valores, id_dropdown, id_dropdowntext) {
     valores.forEach(item => {
         const option = document.createElement('a');
         option.classList.add('dropdown-item');
-        option.href = '#';
         option.textContent = item.description;
         dropdown.appendChild(option);
 
@@ -149,9 +148,9 @@ function preencherTabelaCard(cards) {
         const tdBandeira = document.createElement('td');
         tdBandeira.textContent = enumBandeira[card.bandeira];
         const tdLimite = document.createElement('td');
-        tdLimite.textContent = card.limitValue;
+        tdLimite.textContent = parseInt(card.limitValue).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         const tdCurrentValue = document.createElement('td');
-        tdCurrentValue.textContent = card.currentValue;
+        tdCurrentValue.textContent = parseInt(card.currentValue).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
         const tdClosedDay = document.createElement('td');
         tdClosedDay.textContent = card.dateClose;
 

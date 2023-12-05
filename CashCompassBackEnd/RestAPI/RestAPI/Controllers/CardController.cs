@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Context;
 using Models;
 using RestAPI.Models.Enum;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.ComponentModel.DataAnnotations;
 
 [ApiController]
 [Route("api/v1/[controller]")]
@@ -60,7 +58,28 @@ public class CardController : ControllerBase
 		}
 	}
 
-	[HttpPut("{id:int}")]
+    [HttpGet("cardtype")]
+    public async Task<ActionResult<Card>> GetCardByType([FromRoute] CardType cardType)
+    {
+        try
+        {
+            var cards = await _context
+                .Card
+                .Where(x => x.Type == cardType)
+                .ToListAsync();
+
+            if (cards is null)
+                return NotFound();
+
+            return Ok(cards);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500);
+        }
+    }
+
+    [HttpPut("{id:int}")]
 	public async Task<ActionResult<Card>> Update(int id, CardDTO updateCard)
 	{
         try

@@ -84,7 +84,6 @@ public class DespesaController : ControllerBase
 
         despesa.Description = request.Description;
         despesa.Date = request.Date;
-        despesa.Categoria = request.Categoria;
 
         context.Despesa.Update(despesa);
 

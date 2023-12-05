@@ -102,20 +102,6 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -196,145 +182,46 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center;">
-                                    <div class="input-group">
-                                        <input type="text" id="data-inicial" class="form-control">
-                                        <span class="input-group-append"><i class="bi bi-calendar"></i></span>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" id="dataInputRevenueSearch" name="data">
                                     </div>
                                 </div>
                                 <div class="col-sm-4" style="text-align: center;">
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            id="dropdownFormaPagamentoRevenueSearch" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Cartão de Crédito</a>
-                                            <a class="dropdown-item" href="#">Cartão de Débito</a>
-                                            <a class="dropdown-item" href="#">Pix</a>
-                                            <a class="dropdown-item" href="#">Transferência Bancária</a>
+                                            aria-labelledby="dropdownMenuButton" id="formaPagamentoRevenueSearchDropdown">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4" style="text-align: center;">
                                     <div class="dropdown mb-4">
                                         <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            id="dropdownCategoryRevenueSearch" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Selecione
                                         </button>
                                         <div class="dropdown-menu animated--fade-in"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Salário</a>
-                                            <a class="dropdown-item" href="#">Bônus Empresa</a>
-                                            <a class="dropdown-item" href="#">Bet</a>
+                                            aria-labelledby="dropdownMenuButton" id="categorySearchRevenueDropdown">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4">
-                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                    <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target=".addRevenue-modal-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">ADICIONAR RECEITA</span>
                                     </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Receita</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
-                                                        </div>
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" id="data-inicial" class="form-control">
-                                                                <span class="input-group-append"><i class="bi bi-calendar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Cartão de Crédito</a>
-                                                                    <a class="dropdown-item" href="#">Cartão de Débito</a>
-                                                                    <a class="dropdown-item" href="#">Pix</a>
-                                                                    <a class="dropdown-item" href="#">Transferência Bancária</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3" style="text-align: center;">
-                                                            <div class="dropdown mb-4">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                    Selecione
-                                                                </button>
-                                                                <div class="dropdown-menu animated--fade-in"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Dívida Carro</a>
-                                                                    <a class="dropdown-item" href="#">Casa</a>
-                                                                    <a class="dropdown-item" href="#">Alimentação</a>
-                                                                    <a class="dropdown-item" href="#">Gasolina</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="valueExpenseR" placeholder="Ex.: 3000">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12" style="text-align: center;">
-                                                            <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control form-control-user" id="descriptionExpenseC" placeholder="Ex.: Conta de Água">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                    <button type="button" class="btn btn-success">Salvar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="col-sm-8 text-right">
-                                    <a href="#" class="btn btn-info btn-icon-split">
+                                    <a class="btn btn-info btn-icon-split" id="buttonSearchRevenue">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-search"></i>
                                         </span>
@@ -375,332 +262,8 @@
                                             <th  style="color: #ffffff;">Ações</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>2032</td>
-                                            <td>05/11/2023</td>
-                                            <td>Recebimento de dívida paga</td>
-                                            <th>Pix</th>
-                                            <th>Adicionais</th>
-                                            <th>Tia Léia</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)" data-toggle="modal" data-target=".bd-editreceita-modal-lg"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red" data-toggle="modal" data-target="#apagarReceitaModal"></i>
-                                                    </a>
-                                                </div>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade bd-editreceita-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Editar Receita</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-3" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-3" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
-                                                                    </div>
-                                                                    <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <div class="input-group">
-                                                                            <input type="text" id="data-inicial" class="form-control">
-                                                                            <span class="input-group-append"><i class="bi bi-calendar"></i></span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                Selecione
-                                                                            </button>
-                                                                            <div class="dropdown-menu animated--fade-in"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item" href="#">Cartão de Crédito</a>
-                                                                                <a class="dropdown-item" href="#">Cartão de Débito</a>
-                                                                                <a class="dropdown-item" href="#">Pix</a>
-                                                                                <a class="dropdown-item" href="#">Transferência Bancária</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3" style="text-align: center;">
-                                                                        <div class="dropdown mb-4">
-                                                                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                Selecione
-                                                                            </button>
-                                                                            <div class="dropdown-menu animated--fade-in"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item" href="#">Dívida Carro</a>
-                                                                                <a class="dropdown-item" href="#">Casa</a>
-                                                                                <a class="dropdown-item" href="#">Alimentação</a>
-                                                                                <a class="dropdown-item" href="#">Gasolina</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control form-control-user" id="valueExpenseR" placeholder="Ex.: 3000">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-12" style="text-align: center;">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control form-control-user" id="descriptionExpenseC" placeholder="Ex.: Conta de Água">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                                                <button type="button" class="btn btn-success">Salvar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal fade" id="apagarReceitaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar essa receita?</h5>
-                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">×</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar a receita selecionada.</div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                                                <a class="btn btn-primary" href="#">Apagar</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>3000</th>
-                                            <th>04/11/2023</th>
-                                            <th>Salário ref. a 03/2022</th>
-                                            <th>Transferência Bancária</th>
-                                            <th>Salário</th>
-                                            <th>Empresa X</th>
-                                            <th>
-                                                <div class="icons-container">
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-wrench" style="color:rgb(0, 0, 0)"></i>
-                                                    </a>
-                                                    <a href="#" class="">
-                                                        <i class="fas fa-trash" style="color:red"></i>
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
+                                    <tbody id="tabelaRevenues">
+                                        <!-- Aqui serão inseridos os dados dinamicamente -->
                                     </tbody>
                                 </table>
                             </div>
@@ -754,6 +317,238 @@
         </div>
     </div>
 
+    <!-- Modal Add Revenue-->
+    <div class="modal fade addRevenue-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Receita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="form-group">
+                                <input type="date" class="form-control" id="dataInputRevenueAdd" name="data">
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownFormaPagamentoRevenueAdd" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="formaPagamentoRevenueAddDropdown">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownCategoryRevenueAdd" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="categoryAddRevenueDropdown">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="valueRevenueAdd" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Fornecedor:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="descriptionRevenueAdd" placeholder="Ex.: Salário ref. a XX/XX">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="fornecedorRevenueAdd" placeholder="Ex.: Empresa X">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="cartoesCredito" style="display: none;">
+                        <div class="col-md-12" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Cartão de Crédito:</h6>
+                        </div>
+                        <div class="col-md-12" style="text-align: center;">
+                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                id="dropdownCartaoCreditoAddRevenue" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Selecione
+                            </button>
+                            <div class="dropdown-menu animated--fade-in"
+                                aria-labelledby="dropdownMenuButton" id="cartaoCreditoRevenueAddDropdown">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row" id="cartoesDebito" style="display: none;">
+                        <div class="col-md-12" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Cartão de Débito:</h6>
+                        </div>
+                        <div class="col-md-12" style="text-align: center;">
+                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                id="dropdownCartaoDebitoAddRevenue" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Selecione
+                            </button>
+                            <div class="dropdown-menu animated--fade-in"
+                                aria-labelledby="dropdownMenuButton" id="cartaoDebitoRevenueAddDropdown">
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="saveAddRevenue">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Revenue Modal -->
+    <div class="modal fade bd-editreceita-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Receita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Data:</h6>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Forma de Pagamento:</h6>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Categoria:</h6>
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Valor:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="form-group">
+                                <input type="date" class="form-control" id="dataInputRevenueEdit" name="data">
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownFormaPagamentoRevenueEdit" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="formaPagamentoRevenueEditDropdown">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="text-align: center;">
+                            <div class="dropdown mb-4">
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownCategoryRevenueEdit" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Selecione
+                                </button>
+                                <div class="dropdown-menu animated--fade-in"
+                                    aria-labelledby="dropdownMenuButton" id="categoryEditRevenueDropdown">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="valueRevenueEdit" placeholder="Ex.: 3000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Descrição:</h6>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center;">
+                            <h6 class="m-0 font-weight-bold text-primary">Fornecedor:</h6>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="descriptionRevenueEdit" placeholder="Ex.: Salário ref. a XX/XX">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-user" id="fornecedorRevenueEdit" placeholder="Ex.: Empresa X">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="saveEditRevenue">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apagar Revenue Modal -->
+    <div class="modal fade" id="apagarReceitaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer apagar essa receita?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Apagar" se você estiver certeza que quer apagar a receita selecionada.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" id="apagarReceita">Apagar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -764,6 +559,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -771,7 +567,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
-
+    <script src="js/revenues.js"></script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
@@ -784,7 +580,10 @@
     </script>
 
     <style>
-
+        #categorySearchRevenueDropdown, #categoryAddRevenueDropdown, #categoryEditRevenueDropdown {
+            overflow-y: auto; /* adicionar barra de rolagem quando necessário */
+            max-height: 100px; /* altura máxima antes da barra de rolagem aparecer */
+        }
         .icons-container {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Duas colunas com largura igual */

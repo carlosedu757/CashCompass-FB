@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using RestAPI.Context;
 using RestAPI.Models;
+using RestAPI.Models.Enum;
 
 namespace RestAPI.Controllers;
 
@@ -52,6 +54,99 @@ public class ReceitaController : ControllerBase
 
         var actionName = nameof(GetByIdAsync);
 
-        return CreatedAtAction(actionName, new { Id = request.ReceitaId }, request);
+        return Ok();
+    }
+
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<Receita>>> GetReceitasByDataCategoriaFormaPgmt([FromQuery] DateTime? data, [FromQuery] FormaPagamento? formaPgmt, [FromQuery] int? categoriaId)
+    {
+        try
+        {
+            var query = _context.Receita.AsQueryable();
+
+            if (data != null)
+            {
+                query = query.Where(c => c.Date == data);
+            }
+
+            if (formaPgmt != null)
+            {
+                query = query.Where(c => c.FormaPagamento == formaPgmt);
+            }
+
+            if (categoriaId != null)
+            {
+                query = query.Where(c => c.CategoriaId == categoriaId);
+            }
+
+            var receitas = await query.AsNoTracking().ToListAsync();
+
+            return Ok(receitas);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<Receita>> Update(int id, Receita updateReceita)
+    {
+        try
+        {
+            if (id != updateReceita.ReceitaId)
+                return BadRequest();
+
+            var receita = await _context.Receita.FirstOrDefaultAsync(x => x.ReceitaId == id);
+
+            if (receita == null)
+                return NotFound();
+
+            if (updateReceita.Value != null)
+                receita.Value = updateReceita.Value;
+
+            if (updateReceita.Description != null)
+                receita.Description = updateReceita.Description;
+
+            if (updateReceita.Fornecedor != null)
+                receita.Fornecedor = updateReceita.Fornecedor;
+
+            if (updateReceita.Date != null)
+                receita.Date = updateReceita.Date;
+
+            if (updateReceita.CategoriaId != null)
+                receita.CategoriaId = updateReceita.CategoriaId;
+
+            if (updateReceita.FormaPagamento != null)
+                receita.FormaPagamento = (FormaPagamento)updateReceita.FormaPagamento;
+
+            if (updateReceita.CardId != null)
+                receita.CardId = updateReceita.CardId;
+
+            _context.Receita.Update(receita);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(receita);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+        var receita = await _context.Receita.FirstOrDefaultAsync(x => x.ReceitaId == id);
+
+        if (receita is null)
+            return NotFound();
+
+        _context.Receita.Remove(receita);
+
+        await _context.SaveChangesAsync();
+
+        return Ok(receita);
     }
 }
