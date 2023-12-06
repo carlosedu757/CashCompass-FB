@@ -58,6 +58,41 @@ public class CategoriaController : ControllerBase
         }
     }
 
+    [HttpGet("GanhosPorCategoria")]
+    public async Task<ActionResult<IEnumerable<GanhoPorCategoria>>> GetGanhosPorCategoria()
+    {
+        try
+        {
+            var categorias = await _context.Categoria
+                .AsNoTracking()
+                .ToListAsync();
+
+            if (categorias == null || !categorias.Any())
+                return NotFound("Nenhuma categoria encontrada...");
+
+            var ganhosPorCategoria = new List<GanhoPorCategoria>();
+
+            foreach (var categoria in categorias)
+            {
+                var totalGanhos = await _context.Receita
+                    .Where(r => r.CategoriaId == categoria.CategoriaId) 
+                    .SumAsync(r => r.Value);
+
+                ganhosPorCategoria.Add(new GanhoPorCategoria
+                {
+                    Categoria = categoria.Nome,
+                    Valor = (decimal)totalGanhos 
+                });
+            }
+
+            return Ok(ganhosPorCategoria);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(Categoria categoria)
     {

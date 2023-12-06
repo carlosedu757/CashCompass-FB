@@ -29,6 +29,44 @@ public class ReceitaController : ControllerBase
         return Ok(list);
     }
 
+    [HttpGet("TotalValue")]
+    public async Task<ActionResult<decimal>> GetTotalValue()
+    {
+        try
+        {
+            var totalValue = await _context.Receita
+                .AsNoTracking()
+                .SumAsync(d => d.Value);
+
+            return Ok(totalValue);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500);
+        }
+    }
+
+    [HttpGet("TotalValueGeral")]
+    public async Task<ActionResult<decimal>> GetTotalValueGeral()
+    {
+        try
+        {
+            var totalValue1 = await _context.Receita
+                .AsNoTracking()
+                .SumAsync(d => d.Value);
+
+            var totalValue2 = await _context.Despesa
+                .AsNoTracking()
+                .SumAsync(d => d.Value);
+
+            return Ok(totalValue1 - totalValue2);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500);
+        }
+    }
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Receita>> GetByIdAsync([FromRoute] int id)
     {

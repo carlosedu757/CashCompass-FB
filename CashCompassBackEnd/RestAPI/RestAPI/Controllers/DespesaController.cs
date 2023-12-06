@@ -36,6 +36,23 @@ public class DespesaController : ControllerBase
         }
     }
 
+    [HttpGet("TotalValue")]
+    public async Task<ActionResult<decimal>> GetTotalValue()
+    {
+        try
+        {
+            var totalValue = await _context.Despesa
+                .AsNoTracking()
+                .SumAsync(d => d.Value);
+
+            return Ok(totalValue);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500);
+        }
+    }
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Despesa>> GetDespesaById([FromRoute] int id)
     {
