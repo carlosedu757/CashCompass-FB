@@ -9,28 +9,19 @@ public class Despesa
     [Key]
     public int DespesaId { get; set; }
 
-    [Required]
-    public decimal Value { get; set; }
+    public decimal? Value { get; set; }
 
-    [Required]
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
-    public int CategoriaId { get; set; }
+    public int? CategoriaId { get; set; }
 
-    [Required]
-    [ForeignKey("CategoriaId")]
-    public Categoria Categoria { get; set; }
+    public FormaPagamento? FormaPagamento { get; set; }
 
-    [Required]
-    public FormaPagamento FormaPagamento { get; set; }
+    public int? CardId { get; set; }
 
-    //public int CardId { get; set; }
+    public bool? WasPaid { get; set; }
 
-    //[ForeignKey("CardId")]
-    //public virtual Card Card { get; set; }
-
-    [Required]
-    public bool WasPaid { get; set; }
+    public int? NumParcelas { get; set; }
 }

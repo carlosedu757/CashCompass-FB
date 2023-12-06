@@ -167,7 +167,6 @@ document.getElementById('saveAddRevenue').addEventListener('click', function() {
     const fornecedor = document.getElementById('fornecedorRevenueAdd').value;
     const cardId = document.getElementById('dropdownCartaoCreditoAddRevenue').value;
     
-    console.log(document.getElementById('dropdownFormaPagamentoRevenueAdd').value);
     // Converte os valores numéricos para o formato correto
     const formattedValor = parseFloat(valor);
     const formattedCategoria = parseInt(categoria);

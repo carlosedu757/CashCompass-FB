@@ -85,7 +85,6 @@ document.getElementById('saveAddCard').addEventListener('click', function() {
         CurrentValue: isNaN(formattedCurrentValue) ? 0 : formattedCurrentValue,
         DateClose: isNaN(formattedClosingDay) ? 0 : formattedClosingDay
     };
-    console.log(cardData);
     fetch('http://localhost:5134/api/v1/Card', {
         method: 'POST',
         headers: {

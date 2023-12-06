@@ -70,21 +70,17 @@ public class AppDbContext : IdentityDbContext
         {
             entity.HasKey(e => e.DespesaId);
 
-            entity.Property(e => e.Value).HasColumnType("decimal(7, 2)").IsRequired();
+            entity.Property(e => e.Value).HasColumnType("decimal(7, 2)");
 
-            entity.Property(e => e.Date).IsRequired();
+            entity.Property(e => e.Date);
 
             entity.Property(e => e.Description);
 
-            entity.Property(e => e.FormaPagamento).IsRequired();
+            entity.Property(e => e.FormaPagamento);
 
-            entity.Property(e => e.WasPaid).IsRequired();
+            entity.Property(e => e.WasPaid);
 
-            entity.HasOne(e => e.Categoria)
-                .WithMany()
-                .HasForeignKey(e => e.CategoriaId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            entity.Property(e => e.NumParcelas);
         });
 
 

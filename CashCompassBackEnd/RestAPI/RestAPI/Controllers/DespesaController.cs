@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RestAPI.Context;
 using RestAPI.Models;
+using RestAPI.Models.Enum;
 
 namespace RestAPI.Controllers;
 
@@ -9,13 +10,19 @@ namespace RestAPI.Controllers;
 [Route("api/v1/[controller]")]
 public class DespesaController : ControllerBase
 {
-    
+    private readonly AppDbContext _context;
+
+    public DespesaController(AppDbContext context)
+    {
+        _context = context;
+    }
+
     [HttpGet]
-    public async Task<ActionResult<List<Despesa>>> GetAll([FromServices] AppDbContext context)
+    public async Task<ActionResult<List<Despesa>>> GetAll()
     {
         try
         {
-            var despesas = await context
+            var despesas = await _context
                 .Despesa
                 .AsNoTracking()
                 .ToListAsync();
@@ -30,12 +37,12 @@ public class DespesaController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<Despesa>> GetDespesaById([FromRoute] int id, [FromServices] AppDbContext context)
+    public async Task<ActionResult<Despesa>> GetDespesaById([FromRoute] int id)
     {
 
         try
         {
-            var despesa = await context
+            var despesa = await _context
                 .Despesa
                 .FirstOrDefaultAsync(x => x.DespesaId == id);
 
@@ -51,61 +58,122 @@ public class DespesaController : ControllerBase
         }
     }
 
-    //[HttpPost]
-    //public async Task<ActionResult<Despesa>> Create([FromBody]Despesa request, [FromServices] AppDbContext context)
-    //{
-    //    try
-    //    {
-    //        var despesa = await context
-    //            .Despesa
-    //            .AddAsync(request);
+    [HttpPost]
+    public async Task<ActionResult<Despesa>> Create([FromBody] Despesa despesaRequest)
+    {
+        try
+        {
+            var despesa = await _context.Despesa.AddAsync(despesaRequest);
 
-    //        await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-    //        return CreatedAtAction(nameof(GetDespesaById), new { Id = request.CardId }, request);
-    //    }
+            return Ok(despesa);
+        }
 
-    //    catch(Exception ex)
-    //    {
-    //        return StatusCode(500);
-    //    }
-    //}
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult<Despesa>> Update([FromRoute] int id, 
-        [FromBody] Despesa request, [FromServices] AppDbContext context)
+    public async Task<ActionResult<Despesa>> Update(int id, Despesa updateDespesa)
     {
-        var despesa = await context
-            .Despesa
-            .FirstOrDefaultAsync(x => x.DespesaId == id);
+        try
+        {
+            if (id != updateDespesa.DespesaId)
+                return BadRequest();
+
+            var despesa = await _context.Despesa.FirstOrDefaultAsync(x => x.DespesaId == id);
+
+            if (despesa == null)
+                return NotFound();
+
+            if (updateDespesa.Value != null)
+                despesa.Value = updateDespesa.Value;
+
+            if (updateDespesa.Description != null)
+                despesa.Description = updateDespesa.Description;
+
+            if (updateDespesa.NumParcelas != null)
+                despesa.NumParcelas = updateDespesa.NumParcelas;
+
+            if (updateDespesa.Date != null)
+                despesa.Date = updateDespesa.Date;
+
+            if (updateDespesa.CategoriaId != null)
+                despesa.CategoriaId = updateDespesa.CategoriaId;
+
+            if (updateDespesa.FormaPagamento != null)
+                despesa.FormaPagamento = (FormaPagamento)updateDespesa.FormaPagamento;
+
+            if (updateDespesa.CardId != null)
+                despesa.CardId = updateDespesa.CardId;
+
+            if (updateDespesa.WasPaid != null)
+                despesa.WasPaid = updateDespesa.WasPaid;
+
+            _context.Despesa.Update(despesa);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(despesa);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+        var despesa = await _context.Despesa.FirstOrDefaultAsync(x => x.DespesaId == id);
 
         if (despesa is null)
-            return NotFound($"Não encontrado nenhuma despesa com o id {id} !");
+            return NotFound();
 
-        despesa.Description = request.Description;
-        despesa.Date = request.Date;
+        _context.Despesa.Remove(despesa);
 
-        context.Despesa.Update(despesa);
-
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
 
         return Ok(despesa);
     }
 
-    [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteById([FromRoute] int id, [FromServices] AppDbContext context)
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<Despesa>>> GetDespesasByDataCategoriaFormaPgmtWasPaid([FromQuery] DateTime? data, [FromQuery] FormaPagamento? formaPgmt, [FromQuery] int? categoriaId, [FromQuery] bool? wasPaid)
     {
-        var despesa = await context
-            .Despesa
-            .FirstOrDefaultAsync(x => x.DespesaId == id);
+        try
+        {
+            var query = _context.Despesa.AsQueryable();
 
-        if (despesa is null)
-            return NotFound($"Não encontrado nenhuma despesa com o id {id} !");
+            if (data != null)
+            {
+                query = query.Where(c => c.Date == data);
+            }
 
-        context.Despesa.Remove(despesa);
+            if (formaPgmt != null)
+            {
+                query = query.Where(c => c.FormaPagamento == formaPgmt);
+            }
 
-        await context.SaveChangesAsync();
-        
-        return NoContent();
+            if (categoriaId != null)
+            {
+                query = query.Where(c => c.CategoriaId == categoriaId);
+            }
+
+            if (wasPaid != null)
+            {
+                query = query.Where(c => c.WasPaid == wasPaid);
+            }
+
+            var receitas = await query.AsNoTracking().ToListAsync();
+
+            return Ok(receitas);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Ocorreu um problema ao tratar a sua solicitação");
+        }
     }
 }

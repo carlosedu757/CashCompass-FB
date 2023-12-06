@@ -52,8 +52,6 @@ public class ReceitaController : ControllerBase
 
         await _context.SaveChangesAsync();
 
-        var actionName = nameof(GetByIdAsync);
-
         return Ok();
     }
 
